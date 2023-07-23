@@ -24,8 +24,10 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 // development
 // ReactDOM.createRoot(document.getElementById("root")).render(
 //   <React.StrictMode>
-//     <Provider>
-//       <Scraper />
-//     </Provider>
+//     <div className="growise-crawler">
+//       <Provider>
+//         <Scraper />
+//       </Provider>
+//     </div>
 //   </React.StrictMode>
 // );

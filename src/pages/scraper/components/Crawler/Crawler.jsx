@@ -7,7 +7,7 @@ export const Crawler = () => {
   return (
     <div className="content-wrapper__crawler">
       {tasks.map((index) => (
-        <CrawlerItem key={index} />
+        <CrawlerItem key={tasks[index]} />
       ))}
     </div>
   );
