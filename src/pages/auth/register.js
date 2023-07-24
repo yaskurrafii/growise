@@ -38,6 +38,27 @@ export default function index() {
               />
             </div>
             <Form.Item
+              label="Full name"
+              name="full name"
+              rules={[
+                { required: true, message: "Please input your full name!" },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+
+            <Form.Item
+              label="Email"
+              name="email"
+              rules={[
+                { required: true, message: "Please input your email!" },
+                { type: "email", message: "Please input your valid email!" },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+
+            <Form.Item
               label="Username"
               name="username"
               rules={[
@@ -57,6 +78,19 @@ export default function index() {
               <Input.Password />
             </Form.Item>
 
+            <Form.Item
+              label="Repeat Password"
+              name="repeatpassword"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your repeat password!",
+                },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
+
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
               <Button type="primary" htmlType="submit">
                 Submit
@@ -66,8 +100,7 @@ export default function index() {
             <Divider />
 
             <Typography.Paragraph className="text-center">
-              Don&apos;t have an account?{" "}
-              <Link href={"/auth/register"}>Register now!</Link>
+              Already have an account? <Link href={"/auth"}>Login now!</Link>
             </Typography.Paragraph>
           </Form>
         </Card>
