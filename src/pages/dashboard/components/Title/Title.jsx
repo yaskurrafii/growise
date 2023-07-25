@@ -5,7 +5,6 @@ import { crawlerTask } from "@/stores/crawler";
 export const Title = () => {
   const [_, setCrawler] = useAtom(crawlerTask);
   const handleAddCrawler = () => {
-    console.log(crawlerTask);
     const newItem = Date.now();
     setCrawler((v) => [...v, newItem]);
   };

@@ -1,21 +1,14 @@
-import Navbar from "./components/Navbar";
-import Title from "./components/Title";
-import FilterBar from "./components/FilterBar";
-import Crawler from "./components/Crawler";
+import { formStep } from "@/stores/crawler";
+import { ScraperType } from "./components/Forms/ScraperType";
+import { ScraperName } from "./components/Forms/ScraperName";
+import { useAtom } from "jotai";
 
-function Scraper() {
+export const Scraper = () => {
+  const [step, setStep] = useAtom(formStep);
   return (
-    <>
-      <div id="crawler" className="growise-scraper">
-        <Navbar />
-        <Title />
-        <div className="content-wrapper" id="content">
-          <FilterBar />
-          <Crawler />
-        </div>
-      </div>
-    </>
+    <div className="build-scraper">
+      {step == 1 && <ScraperType setFormStep={setStep} />}
+      {step == 2 && <ScraperName setFormStep={setStep} />}
+    </div>
   );
-}
-
-export default Scraper;
+};

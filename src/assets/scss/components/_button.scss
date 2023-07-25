@@ -39,10 +39,6 @@ button:active {
   transform: translateY(0);
 }
 
-.content-wrapper__title button {
-  color: white;
-}
-
 @mixin _size($size) {
   @if $size == sm {
     width: 78px;
