@@ -1,0 +1,28 @@
+{
+  "name": "growise-react",
+  "description": "growise react extension for scraping",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "web_accessible_resources": [{
+      "matches": ["<all_urls>"],
+      "resources": ["index.html"]
+  }],
+  "action": {
+    "default_title": "react-app"
+  },
+  "background":{
+    "service_worker": "./services/inject.js"
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

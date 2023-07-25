@@ -1,0 +1,108 @@
+@import "../variables/color";
+
+.growise-crawler {
+  width: 100vw;
+  height: 100vh;
+  background-color: grey;
+}
+
+#scraper-form-name {
+  background-color: $bright-grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding:40px;
+  border-radius: 20px;
+  & input[type="text"] {
+    color:$blue;
+    text-align: center;
+    font-size: 22px;
+    height:60px;
+    width: 40vw;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+  & h2{
+    color: $dark-gray;
+  }
+  & h3{
+    color: $medium-grey;
+  }
+}
+
+#scraper-type-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  & button {
+    color: white;
+  }
+}
+
+.build-scraper {
+  text-align: center;
+  color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__single,
+  &__list {
+    background: $bright-grey;
+    color: $medium-grey;
+    border-radius: 20px;
+    width: 500px;
+    height: 350px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    transition: 250ms all;
+    & h2 {
+      color: $blue;
+    }
+    &-img {
+      display: grid;
+      place-items: center;
+      justify-content: center;
+      height: 50%;
+      & + img {
+        height: 30%;
+        object-fit: contain;
+      }
+    }
+    &-helper {
+      height: 25%;
+      padding-top: 20px;
+      gap: 8px;
+      display: flex;
+      flex-direction: column;
+    }
+    &:hover {
+      cursor: pointer;
+      transform: translateY(-1px);
+      box-shadow: rgba(0, 0, 0, 0.15) 0 4px 12px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 20px;
+  }
+
+  [type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+}
