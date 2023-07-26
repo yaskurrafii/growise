@@ -1,10 +1,9 @@
-import { Button, Card, Checkbox, Divider, Form, Input, Typography } from "antd";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import { Button, Card, Divider, Form, Input, Typography } from "antd";
 import { Container } from "react-bootstrap";
+import { LogoIcon } from "../dashboard/components/Navbar/Icon";
+import { Link } from "react-router-dom";
 
-export default function index() {
+export default function Register() {
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -23,19 +22,14 @@ export default function index() {
             name="basic"
             labelCol={{ span: 8 }}
             wrapperCol={{ span: 16 }}
-            style={{ maxWidth: 600 }}
+            style={{ width: 400 }}
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
           >
             <div className="d-flex justify-content-center mb-4">
-              <Image
-                width={210}
-                height={48}
-                src={"/img/logo.png"}
-                alt="Growise Logo"
-              />
+              <LogoIcon />
             </div>
             <Form.Item
               label="Full name"
@@ -93,14 +87,14 @@ export default function index() {
 
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
               <Button type="primary" htmlType="submit">
-                Submit
+                Register
               </Button>
             </Form.Item>
 
             <Divider />
 
             <Typography.Paragraph className="text-center">
-              Already have an account? <Link href={"/auth"}>Login now!</Link>
+              Already have an account? <Link to={"/login"}>Login now!</Link>
             </Typography.Paragraph>
           </Form>
         </Card>
