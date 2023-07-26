@@ -1,10 +1,9 @@
-import { Button, Card, Checkbox, Divider, Form, Input, Typography } from "antd";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import { Button, Card, Divider, Form, Input, Typography } from "antd";
 import { Container } from "react-bootstrap";
+import { LogoIcon } from "../dashboard/components/Navbar/Icon";
+import { Link } from "react-router-dom";
 
-export default function index() {
+export default function Login() {
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -15,7 +14,7 @@ export default function index() {
   return (
     <div
       className="d-flex justify-content-center align-items-center flex-column"
-      style={{ minHeight: "100vh" }}
+      style={{ height: "100vh", width: "100vw" }}
     >
       <Container className="d-flex justify-content-center">
         <Card style={{ width: "fit-content" }}>
@@ -30,12 +29,7 @@ export default function index() {
             autoComplete="off"
           >
             <div className="d-flex justify-content-center mb-4">
-              <Image
-                width={210}
-                height={48}
-                src={"/img/logo.png"}
-                alt="Growise Logo"
-              />
+              <LogoIcon />
             </div>
             <Form.Item
               label="Username"
@@ -59,7 +53,7 @@ export default function index() {
 
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
               <Button type="primary" htmlType="submit">
-                Submit
+                Login
               </Button>
             </Form.Item>
 
@@ -67,7 +61,7 @@ export default function index() {
 
             <Typography.Paragraph className="text-center">
               Don&apos;t have an account?{" "}
-              <Link href={"/auth/register"}>Register now!</Link>
+              <Link to={"/register"}>Register now!</Link>
             </Typography.Paragraph>
           </Form>
         </Card>
