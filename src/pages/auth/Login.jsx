@@ -1,16 +1,21 @@
-import { Button, Card, Divider, Form, Input, Typography } from "antd";
+import { Button, Card, Divider, Form, Input, Spin, Typography } from "antd";
 import { Container } from "react-bootstrap";
 import { LogoIcon } from "../dashboard/components/Navbar/Icon";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { LoginApi } from "@/apis/api";
 
 export default function Login() {
+  const [loading, setLoading] = useState(false)
+  
   const onFinish = (values) => {
-    console.log("Success:", values);
+    setLoading(true)
+    LoginApi(values).then((resp) => {
+      console.log(resp.data)
+      setLoading(false)
+    })
   };
 
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
   return (
     <div
       className="d-flex justify-content-center align-items-center flex-column"
@@ -25,8 +30,6 @@ export default function Login() {
             style={{ maxWidth: 600 }}
             initialValues={{ remember: true }}
             onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            autoComplete="off"
           >
             <div className="d-flex justify-content-center mb-4">
               <LogoIcon />
@@ -38,7 +41,7 @@ export default function Login() {
                 { required: true, message: "Please input your username!" },
               ]}
             >
-              <Input />
+              <Input disabled={loading} />
             </Form.Item>
 
             <Form.Item
@@ -48,12 +51,12 @@ export default function Login() {
                 { required: true, message: "Please input your password!" },
               ]}
             >
-              <Input.Password />
+              <Input.Password disabled={loading} />
             </Form.Item>
 
-            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-              <Button type="primary" htmlType="submit">
-                Login
+            <Form.Item wrapperCol={{ offset: 8, span: 24 }}>
+              <Button type="primary" htmlType="submit" style={{ width: "100%" }} disabled={loading}>
+                {loading ? <Spin /> : "Login"}
               </Button>
             </Form.Item>
 
