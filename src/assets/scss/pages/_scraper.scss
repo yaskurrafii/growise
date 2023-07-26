@@ -6,29 +6,43 @@
   background-color: grey;
 }
 
-#scraper-form-name {
-  background-color: $bright-grey;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  padding:40px;
-  border-radius: 20px;
-  & input[type="text"] {
-    color:$blue;
-    text-align: center;
-    font-size: 22px;
-    height:60px;
-    width: 40vw;
-    box-sizing: border-box;
-    padding: 10px;
+.build__scraper-name {
+  & h1{
+    padding-bottom: 32px;
   }
-  & h2{
-    color: $dark-gray;
+  &-navigation {
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
+    gap: 40px;
+    & button {
+      color: white;
+    }
   }
-  & h3{
-    color: $medium-grey;
+  #scraper-form-name {
+    background-color: $bright-grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    border-radius: 20px;
+    & input[type="text"] {
+      color: $blue;
+      text-align: center;
+      font-size: 22px;
+      height: 60px;
+      width: 40vw;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+    & h2 {
+      color: $dark-gray;
+    }
+    & h3 {
+      color: $medium-grey;
+    }
   }
 }
 

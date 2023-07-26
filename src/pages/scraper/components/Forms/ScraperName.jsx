@@ -1,6 +1,7 @@
 import { useAtom } from "jotai";
 import { useForm } from "react-hook-form";
 import { crawlerData } from "@/stores/crawler";
+import UIButton from "@/components/Button";
 
 export const ScraperName = ({ setFormStep }) => {
   const {
@@ -28,15 +29,19 @@ export const ScraperName = ({ setFormStep }) => {
             id="name"
             {...register("name", { required: true })}
           />
-          {errors.name && <p className="text-error">Crawler name is required</p>}
+          {errors.name && (
+            <p className="text-error">Crawler name is required</p>
+          )}
         </div>
-        <button className="" onClick={() => setFormStep(1)}>
-          Previous
-        </button>
-        <button type="submit" className="" onClick={() => setFormStep(2)}>
-          Next
-        </button>
       </form>
+      <div className="build__scraper-name-navigation">
+        <UIButton size="sm" variant="outline" color="white" onClick={() => setFormStep(1)}>
+          Previous
+        </UIButton>
+        <UIButton size="sm" variant="outline" color="white" onClick={() => setFormStep(2)}>
+          Next
+        </UIButton>
+      </div>
     </div>
   );
 };

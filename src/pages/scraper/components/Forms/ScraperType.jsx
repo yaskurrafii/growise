@@ -1,8 +1,8 @@
 import { useSetAtom } from "jotai";
 import { useForm } from "react-hook-form";
 import { crawlerData } from "@/stores/crawler";
-import { useEffect } from "react";
 import UIButton from "@/components/Button";
+import { Link } from "react-router-dom";
 
 export const ScraperType = ({ setFormStep }) => {
   const { handleSubmit, register } = useForm();
@@ -75,9 +75,11 @@ export const ScraperType = ({ setFormStep }) => {
             </div>
           </label>
         </div>
-        <UIButton size="sm" variant="outline" color="white">
-          Cancel
-        </UIButton>
+        <Link to={`/`}>
+          <UIButton size="sm" variant="outline" color="white">
+            Cancel
+          </UIButton>
+        </Link>
       </form>
     </>
   );

@@ -5,7 +5,7 @@
   "manifest_version": 3,
   "web_accessible_resources": [{
       "matches": ["<all_urls>"],
-      "resources": ["index.html"]
+      "resources": ["./assets/images/*"]
   }],
   "action": {
     "default_title": "react-app"

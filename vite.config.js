@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import path from 'path'
+import path from "path";
 import { createHtmlPlugin } from "vite-plugin-html";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 
@@ -20,6 +20,10 @@ export default defineConfig({
           dest: ".",
         },
         { src: "src/services", dest: "." },
+        {
+          src: "src/assets/images",
+          dest: "assets",
+        },
       ],
     }),
   ],
@@ -32,11 +36,11 @@ export default defineConfig({
     rollupOptions: {
       output: {
         entryFileNames: `app.js`,
-        assetFileNames: `assets/[name].[ext]`
+        assetFileNames: `assets/[name].[ext]`,
       },
     },
-    outDir: "build",
+    outDir: "dist",
     assetsDir: "assets",
-    manifest: "vite-manifest.json",
+    manifest: "vite-manifest.json"
   },
 });

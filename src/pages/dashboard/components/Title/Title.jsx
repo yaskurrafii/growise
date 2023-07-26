@@ -1,6 +1,7 @@
 import UIButton from "@/components/Button";
 import { useAtom } from "jotai";
 import { crawlerTask } from "@/stores/crawler";
+import { Link } from "react-router-dom";
 
 export const Title = () => {
   const [_, setCrawler] = useAtom(crawlerTask);
@@ -11,9 +12,11 @@ export const Title = () => {
   return (
     <div className="title">
       <h1>Scraper</h1>
-      <UIButton onClick={handleAddCrawler} size="lg">
-        Create Scraper
-      </UIButton>
+      <Link to={`/build-scraper`}>
+        <UIButton onClick={handleAddCrawler} size="lg">
+          Create Scraper
+        </UIButton>
+      </Link>
     </div>
   );
 };
