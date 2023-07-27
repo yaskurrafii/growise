@@ -22,8 +22,8 @@ export default function Login() {
       className="d-flex justify-content-center align-items-center flex-column"
       style={{ height: "100vh", width: "100vw" }}
     >
-      <Container className="d-flex justify-content-center">
-        <Card style={{ width: "fit-content" }}>
+      <Container className="d-flex justify-content-center align-items-center">
+        <Card style={{ width: "fit-content", height: "fit-content" }}>
           <Form
             name="basic"
             labelCol={{ span: 8 }}

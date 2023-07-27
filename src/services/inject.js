@@ -4,6 +4,7 @@ const setTabs = new Set();
 let init;
 
 chrome.action.onClicked.addListener(async function (tab) {
+  console.log(tab)
   if (!setTabs.has(tab.id)) {
     if (!init) {
       init = true;

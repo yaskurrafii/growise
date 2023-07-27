@@ -4,7 +4,6 @@ import { LogoIcon } from "../dashboard/components/Navbar/Icon";
 import { Link, useNavigate } from "react-router-dom";
 import { RegisterApi } from "@/apis/api";
 import { useState } from "react";
-import axios from "axios";
 
 export default function Register() {
   const [loading, setLoading] = useState(false);
@@ -23,10 +22,10 @@ export default function Register() {
   return (
     <div
       className="d-flex justify-content-center align-items-center flex-column"
-      style={{ minHeight: "100vh" }}
+      style={{ minHeight: "100vh", width: "100vw" }}
     >
-      <Container className="d-flex justify-content-center">
-        <Card style={{ width: "fit-content" }}>
+      <Container className="d-flex justify-content-center align-items-center">
+        <Card style={{ width: "fit-content", height:"fit-content" }}>
           <Form
             name="basic"
             labelCol={{ span: 8 }}
@@ -106,7 +105,7 @@ export default function Register() {
             <Divider />
 
             <Typography.Paragraph className="text-center">
-              Already have an account? <Link to={"/login"}>Login now!</Link>
+              Already have an account? <Link to={"/"}>Login now!</Link>
             </Typography.Paragraph>
           </Form>
         </Card>
