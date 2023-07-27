@@ -19,6 +19,9 @@ body {
   height: 100%;
   background-color: $dark-blue;
   position: fixed;
+  display: flex;
+  justify-items: center;
+  align-items: center;
   top: 0px;
   z-index: 9999;
 }
