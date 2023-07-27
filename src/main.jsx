@@ -8,12 +8,12 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
 
 // production
-
 const bodyDom = document.body;
 var initDom = document.createElement("div");
 initDom.id = "growise-crawler";
 
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+  console.log(message, sender)
   if (message.action === "close") {
     document.getElementById("growise-crawler").remove();
     sendResponse({ status: "closed" });
