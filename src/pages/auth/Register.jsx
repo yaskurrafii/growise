@@ -1,16 +1,19 @@
-import { Button, Card, Checkbox, Divider, Form, Input, Typography } from "antd";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import { Button, Card, Divider, Form, Input, Spin, Typography } from "antd";
 import { Container } from "react-bootstrap";
+import { LogoIcon } from "../dashboard/components/Navbar/Icon";
+import { Link } from "react-router-dom";
+import { RegisterApi } from "@/apis/api";
+import { useState } from "react";
 
-export default function index() {
+export default function Register() {
+  const [loading, setLoading] = useState(false)
+  
   const onFinish = (values) => {
-    console.log("Success:", values);
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+    setLoading(true)
+    RegisterApi(values).then((resp) => {
+      console.log(resp.data)
+      setLoading(false)
+    })
   };
   return (
     <div
@@ -23,19 +26,12 @@ export default function index() {
             name="basic"
             labelCol={{ span: 8 }}
             wrapperCol={{ span: 16 }}
-            style={{ maxWidth: 600 }}
+            style={{ width: 400 }}
             initialValues={{ remember: true }}
             onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            autoComplete="off"
           >
             <div className="d-flex justify-content-center mb-4">
-              <Image
-                width={210}
-                height={48}
-                src={"/img/logo.png"}
-                alt="Growise Logo"
-              />
+              <LogoIcon />
             </div>
             <Form.Item
               label="Full name"
@@ -44,7 +40,7 @@ export default function index() {
                 { required: true, message: "Please input your full name!" },
               ]}
             >
-              <Input />
+              <Input disabled={loading}/>
             </Form.Item>
 
             <Form.Item
@@ -55,7 +51,7 @@ export default function index() {
                 { type: "email", message: "Please input your valid email!" },
               ]}
             >
-              <Input />
+              <Input disabled={loading}/>
             </Form.Item>
 
             <Form.Item
@@ -65,7 +61,7 @@ export default function index() {
                 { required: true, message: "Please input your username!" },
               ]}
             >
-              <Input />
+              <Input disabled={loading}/>
             </Form.Item>
 
             <Form.Item
@@ -75,7 +71,7 @@ export default function index() {
                 { required: true, message: "Please input your password!" },
               ]}
             >
-              <Input.Password />
+              <Input.Password disabled={loading} />
             </Form.Item>
 
             <Form.Item
@@ -88,19 +84,19 @@ export default function index() {
                 },
               ]}
             >
-              <Input.Password />
+              <Input.Password disabled={loading} />
             </Form.Item>
 
-            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-              <Button type="primary" htmlType="submit">
-                Submit
+            <Form.Item wrapperCol={{ offset: 8, span: 24 }}>
+              <Button type="primary" htmlType="submit" style={{ width: "100%" }} disabled={loading}>
+                {loading ? <Spin /> : "Register"}
               </Button>
             </Form.Item>
 
             <Divider />
 
             <Typography.Paragraph className="text-center">
-              Already have an account? <Link href={"/auth"}>Login now!</Link>
+              Already have an account? <Link to={"/login"}>Login now!</Link>
             </Typography.Paragraph>
           </Form>
         </Card>

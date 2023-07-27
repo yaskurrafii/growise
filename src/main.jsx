@@ -1,7 +1,33 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./assets/scss/styles.scss";
+import "bootstrap/dist/css/bootstrap.css"
+// import Dashboard from "./pages/dashboard";
 import { Provider } from "jotai";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Dashboard from "./pages/dashboard";
+import Scraper from "./pages/scraper";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/register";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Dashboard />,
+  },
+  {
+    path: "/build-scraper",
+    element: <Scraper />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+]);
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
 
