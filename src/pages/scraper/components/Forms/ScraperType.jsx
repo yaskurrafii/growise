@@ -75,7 +75,7 @@ export const ScraperType = ({ setFormStep }) => {
             </div>
           </label>
         </div>
-        <Link to={`/`}>
+        <Link to={`/dashboard`}>
           <UIButton size="sm" variant="outline" color="white">
             Cancel
           </UIButton>

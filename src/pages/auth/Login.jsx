@@ -1,18 +1,19 @@
 import { Button, Card, Divider, Form, Input, Spin, Typography } from "antd";
 import { Container } from "react-bootstrap";
 import { LogoIcon } from "../dashboard/components/Navbar/Icon";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { LoginApi } from "@/apis/api";
 
 export default function Login() {
   const [loading, setLoading] = useState(false)
-  
+  const navigate = useNavigate()
   const onFinish = (values) => {
     setLoading(true)
     LoginApi(values).then((resp) => {
       console.log(resp.data)
       setLoading(false)
+      navigate("/dashboard")
     })
   };
 

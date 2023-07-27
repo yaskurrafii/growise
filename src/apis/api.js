@@ -6,7 +6,6 @@ import { redirect } from "react-router-dom";
  * Setting up axios base URL
  */
 axios.defaults.baseURL = url.baseURL;
-
 /**
  * Register API
  * @param data Parsing data user request body to API
@@ -20,7 +19,7 @@ export async function RegisterApi(data) {
     return await axios
       .post(url.registerUrl, data)
       .then((response) => {
-        return 
+        return response
       })
       .catch((error) => {
         console.log("Error register ", error.response.data);
