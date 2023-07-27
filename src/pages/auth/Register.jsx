@@ -1,15 +1,19 @@
-import { Button, Card, Divider, Form, Input, Typography } from "antd";
+import { Button, Card, Divider, Form, Input, Spin, Typography } from "antd";
 import { Container } from "react-bootstrap";
 import { LogoIcon } from "../dashboard/components/Navbar/Icon";
 import { Link } from "react-router-dom";
+import { RegisterApi } from "@/apis/api";
+import { useState } from "react";
 
 export default function Register() {
+  const [loading, setLoading] = useState(false)
+  
   const onFinish = (values) => {
-    console.log("Success:", values);
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+    setLoading(true)
+    RegisterApi(values).then((resp) => {
+      console.log(resp.data)
+      setLoading(false)
+    })
   };
   return (
     <div
@@ -25,8 +29,6 @@ export default function Register() {
             style={{ width: 400 }}
             initialValues={{ remember: true }}
             onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            autoComplete="off"
           >
             <div className="d-flex justify-content-center mb-4">
               <LogoIcon />
@@ -38,7 +40,7 @@ export default function Register() {
                 { required: true, message: "Please input your full name!" },
               ]}
             >
-              <Input />
+              <Input disabled={loading}/>
             </Form.Item>
 
             <Form.Item
@@ -49,7 +51,7 @@ export default function Register() {
                 { type: "email", message: "Please input your valid email!" },
               ]}
             >
-              <Input />
+              <Input disabled={loading}/>
             </Form.Item>
 
             <Form.Item
@@ -59,7 +61,7 @@ export default function Register() {
                 { required: true, message: "Please input your username!" },
               ]}
             >
-              <Input />
+              <Input disabled={loading}/>
             </Form.Item>
 
             <Form.Item
@@ -69,7 +71,7 @@ export default function Register() {
                 { required: true, message: "Please input your password!" },
               ]}
             >
-              <Input.Password />
+              <Input.Password disabled={loading} />
             </Form.Item>
 
             <Form.Item
@@ -82,12 +84,12 @@ export default function Register() {
                 },
               ]}
             >
-              <Input.Password />
+              <Input.Password disabled={loading} />
             </Form.Item>
 
-            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-              <Button type="primary" htmlType="submit">
-                Register
+            <Form.Item wrapperCol={{ offset: 8, span: 24 }}>
+              <Button type="primary" htmlType="submit" style={{ width: "100%" }} disabled={loading}>
+                {loading ? <Spin /> : "Register"}
               </Button>
             </Form.Item>
 
