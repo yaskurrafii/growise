@@ -12,14 +12,18 @@ axios.defaults.baseURL = url.baseURL;
  * @returns Response Object
  */
 export async function RegisterApi(data) {
-  return await axios
-    .post(url.registerUrl, data)
-    .then((response) => {
-      return response;
-    })
-    .catch((error) => {
-      return error.response;
-    });
+  if (data.password !== data.repeatpassword) {
+    console.log("Password not same");
+  } else {
+    return await axios
+      .post("http://127.0.0.1:8000/login/", data)
+      .then((response) => {
+        console.log("Register berhasil ", response.data);
+      })
+      .catch((error) => {
+        console.log("Error register ", error.response.data);
+      });
+  }
 }
 
 /**

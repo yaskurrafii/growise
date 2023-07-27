@@ -15,17 +15,6 @@ export default function Login() {
       console.log(resp.data)
       setLoading(false)
     })
-    axios
-      .post("http://127.0.0.1:8000/login/", {
-        username: values.username,
-        password: values.password,
-      })
-      .then((response) => {
-        console.log("Login Success : ", response.data);
-      })
-      .catch((error) => {
-        console.log("Login Error : ", error.response.data);
-      });
   };
 
   return (

@@ -4,7 +4,7 @@
  * Base URL
  * @returns Base URL string
  */
-export const baseURL = `http://localhost:8000`;
+export const baseURL = `http://127.0.0.1:8000`;
 // process.env.REACT_APP_ENV === "production"
 //   ? "https://crawlerhub.lndata.com"
 //   : process.env.REACT_APP_ENV === "staging"

@@ -7,26 +7,14 @@ import { useState } from "react";
 import axios from "axios";
 
 export default function Register() {
-  const [loading, setLoading] = useState(false)
-  
+  const [loading, setLoading] = useState(false);
+
   const onFinish = (values) => {
-    setLoading(true)
+    setLoading(true);
     RegisterApi(values).then((resp) => {
-      console.log(resp.data)
-      setLoading(false)
-    })
-    if (values.password !== values.repeatpassword) {
-      console.log("Password not same");
-    } else {
-      axios
-        .post("http://127.0.0.1:8000/login/", values)
-        .then((response) => {
-          console.log("Register berhasil ", response.data);
-        })
-        .catch((error) => {
-          console.log("Error register ", error.response.data);
-        });
-    }
+      console.log(resp.data);
+      setLoading(false);
+    });
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -57,7 +45,7 @@ export default function Register() {
                 { required: true, message: "Please input your full name!" },
               ]}
             >
-              <Input disabled={loading}/>
+              <Input disabled={loading} />
             </Form.Item>
 
             <Form.Item
@@ -68,7 +56,7 @@ export default function Register() {
                 { type: "email", message: "Please input your valid email!" },
               ]}
             >
-              <Input disabled={loading}/>
+              <Input disabled={loading} />
             </Form.Item>
 
             <Form.Item
@@ -78,7 +66,7 @@ export default function Register() {
                 { required: true, message: "Please input your username!" },
               ]}
             >
-              <Input disabled={loading}/>
+              <Input disabled={loading} />
             </Form.Item>
 
             <Form.Item
@@ -105,7 +93,12 @@ export default function Register() {
             </Form.Item>
 
             <Form.Item wrapperCol={{ offset: 8, span: 24 }}>
-              <Button type="primary" htmlType="submit" style={{ width: "100%" }} disabled={loading}>
+              <Button
+                type="primary"
+                htmlType="submit"
+                style={{ width: "100%" }}
+                disabled={loading}
+              >
                 {loading ? <Spin /> : "Register"}
               </Button>
             </Form.Item>
