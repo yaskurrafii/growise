@@ -1,25 +1,18 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import path from "path";
-import { createHtmlPlugin } from "vite-plugin-html";
+import path, { resolve } from "path";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    createHtmlPlugin({
-      minify: true,
-      entry: "src/main.jsx",
-      template: "index.html",
-    }),
     viteStaticCopy({
       targets: [
         {
           src: "src/manifest.json",
           dest: ".",
         },
-        { src: "src/services", dest: "." },
         {
           src: "src/assets/images",
           dest: "assets",
@@ -34,13 +27,17 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
+      input: {
+        inject: path.resolve("./src/services/inject.js"),
+        app: path.resolve("./src/main.jsx"),
+      },
       output: {
-        entryFileNames: `app.js`,
+        entryFileNames: `[name].js`,
         assetFileNames: `assets/[name].[ext]`,
       },
     },
     outDir: "dist",
     assetsDir: "assets",
-    manifest: "vite-manifest.json"
+    manifest: "vite-manifest.json",
   },
 });

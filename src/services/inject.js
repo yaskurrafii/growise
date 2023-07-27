@@ -1,17 +1,26 @@
+import { injectCssScript, sendMessageToTab } from "./utils";
+
+const setTabs = new Set();
+let init;
+
 chrome.action.onClicked.addListener(async function (tab) {
-  chrome.scripting
-    .insertCSS({
-      target: { tabId: tab.id },
-      files: ["assets/index.css"],
-    })
-    .then(() => console.log("css injected!"));
-  chrome.scripting.executeScript(
-    { target: { tabId: tab.id }, files: ["app.js"] },
-    function (injectionResults) {
-      console.log(injectionResults);
-      chrome.tabs.sendMessage(tab.id, {}, function (response) {
-        console.log(response.loaded);
+  if (!setTabs.has(tab.id)) {
+    if (!init) {
+      init = true;
+      const tabId = await injectCssScript(tab.id);
+      setTabs.add(tabId);
+    } else {
+      const response = await sendMessageToTab(tab.id, {
+        action: "open",
       });
+      if (response.status === "opened") {
+        setTabs.add(tab.id);
+      }
     }
-  );
+  } else {
+    const response = await sendMessageToTab(tab.id, { action: "close" });
+    if (response.status === "closed") {
+      setTabs.delete(tab.id);
+    }
+  }
 });

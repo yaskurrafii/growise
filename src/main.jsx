@@ -1,39 +1,41 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./assets/scss/styles.scss";
-// import Dashboard from "./pages/dashboard";
 import { Provider } from "jotai";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Dashboard from "./pages/dashboard";
-import Scraper from "./pages/scraper";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Dashboard />,
-  },
-  {
-    path: "/build-scraper",
-    element: <Scraper />,
-  },
-]);
+import { RouterProvider } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
+import { router } from "./router";
 
 // production
+
+let injected;
 const bodyDom = document.body;
+var initDom = document.createElement("div");
+initDom.id = "growise-crawler";
+
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-  var initDom = document.createElement("div");
-  initDom.id = "growise-crawler";
-  bodyDom.insertBefore(initDom, bodyDom.childNodes[0]);
-  document.querySelector("body").appendChild(initDom);
-  ReactDOM.createRoot(document.getElementById("growise-crawler")).render(
-    <React.StrictMode>
-      <div className="growise-crawler">
+  if (message.action === "close") {
+    document.getElementById("growise-crawler").remove();
+    sendResponse({ status: "closed" });
+  } else if (message.action === "open") {
+    bodyDom.insertBefore(initDom, bodyDom.childNodes[0]);
+    ReactDOM.createRoot(document.getElementById("growise-crawler")).render(
+      <React.StrictMode>
         <RouterProvider router={router} />
         <Provider></Provider>
-      </div>
-    </React.StrictMode>
-  );
-  sendResponse({ loaded: "true" });
+      </React.StrictMode>
+    );
+    sendResponse({ status: "opened" });
+  } else {
+    bodyDom.insertBefore(initDom, bodyDom.childNodes[0]);
+    ReactDOM.createRoot(document.getElementById("growise-crawler")).render(
+      <React.StrictMode>
+        <RouterProvider router={router} />
+        <Provider></Provider>
+      </React.StrictMode>
+    );
+    sendResponse({ loaded: "true" });
+  }
 });
 
 // development
@@ -41,9 +43,8 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 // ReactDOM.createRoot(document.getElementById("root")).render(
 //   <React.StrictMode>
 //     <div className="growise-crawler">
-//     <RouterProvider router={router} />
-//       <Provider>
-//       </Provider>
+//       <RouterProvider router={router} />
+//       <Provider></Provider>
 //     </div>
 //   </React.StrictMode>
 // );

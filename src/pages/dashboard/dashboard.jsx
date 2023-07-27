@@ -9,7 +9,7 @@ function Dashboard() {
       <div id="crawler" className="growise-scraper">
         <Navbar />
         <Title />
-        <div className="content-wrapper" id="content">
+        <div className="content-wrapper">
           <FilterBar />
           <Crawler />
         </div>

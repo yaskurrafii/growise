@@ -1,14 +1,19 @@
 {
-  "index.css": {
-    "file": "assets/index.css",
-    "src": "index.css"
+  "src/main.css": {
+    "file": "assets/main.css",
+    "src": "src/main.css"
   },
-  "index.html": {
+  "src/main.jsx": {
     "css": [
-      "assets/index.css"
+      "assets/main.css"
     ],
     "file": "app.js",
     "isEntry": true,
-    "src": "index.html"
+    "src": "src/main.jsx"
+  },
+  "src/services/inject.js": {
+    "file": "inject.js",
+    "isEntry": true,
+    "src": "src/services/inject.js"
   }
 }
