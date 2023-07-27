@@ -11,7 +11,8 @@
     "default_title": "react-app"
   },
   "background":{
-    "service_worker": "./services/inject.js"
+    "service_worker": "inject.js",
+    "type": "module"
   },
   "permissions": [
     "tabs",

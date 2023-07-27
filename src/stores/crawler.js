@@ -1,4 +1,4 @@
-import { atom, useSetAtom } from "jotai";
+import { atom } from "jotai";
 
 //scraper task in dashboard
 export const crawlerTask = atom([]);
