@@ -1,19 +1,24 @@
 import { Button, Card, Divider, Form, Input, Spin, Typography } from "antd";
 import { Container } from "react-bootstrap";
 import { LogoIcon } from "../dashboard/components/Navbar/Icon";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { RegisterApi } from "@/apis/api";
 import { useState } from "react";
+import axios from "axios";
 
 export default function Register() {
-  const [loading, setLoading] = useState(false)
-  
+  const [loading, setLoading] = useState(false);
+
   const onFinish = (values) => {
-    setLoading(true)
+    setLoading(true);
     RegisterApi(values).then((resp) => {
-      console.log(resp.data)
-      setLoading(false)
-    })
+      setLoading(false);
+      return redirect("/login")
+    });
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
   return (
     <div
@@ -35,12 +40,12 @@ export default function Register() {
             </div>
             <Form.Item
               label="Full name"
-              name="full name"
+              name="fullname"
               rules={[
                 { required: true, message: "Please input your full name!" },
               ]}
             >
-              <Input disabled={loading}/>
+              <Input disabled={loading} />
             </Form.Item>
 
             <Form.Item
@@ -51,7 +56,7 @@ export default function Register() {
                 { type: "email", message: "Please input your valid email!" },
               ]}
             >
-              <Input disabled={loading}/>
+              <Input disabled={loading} />
             </Form.Item>
 
             <Form.Item
@@ -61,7 +66,7 @@ export default function Register() {
                 { required: true, message: "Please input your username!" },
               ]}
             >
-              <Input disabled={loading}/>
+              <Input disabled={loading} />
             </Form.Item>
 
             <Form.Item
@@ -88,7 +93,12 @@ export default function Register() {
             </Form.Item>
 
             <Form.Item wrapperCol={{ offset: 8, span: 24 }}>
-              <Button type="primary" htmlType="submit" style={{ width: "100%" }} disabled={loading}>
+              <Button
+                type="primary"
+                htmlType="submit"
+                style={{ width: "100%" }}
+                disabled={loading}
+              >
                 {loading ? <Spin /> : "Register"}
               </Button>
             </Form.Item>
