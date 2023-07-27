@@ -7,15 +7,15 @@ import { createHashRouter } from "react-router-dom";
 export const router = createHashRouter([
   {
     path: "/",
-    element: <Dashboard />,
+    element: <Login />,
   },
   {
     path: "/build-scraper",
     element: <Scraper />,
   },
   {
-    path: "/login",
-    element: <Login />,
+    path: "/dashboard",
+    element: <Dashboard />
   },
   {
     path: "/register",

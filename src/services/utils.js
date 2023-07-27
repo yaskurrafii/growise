@@ -20,8 +20,9 @@ async function injectCssScript(tabId) {
     });
     console.log(injectionResults);
 
-    const response = await sendMessageToTab(tabId, {});
-    if (response.loaded === "true") {
+    const response = await sendMessageToTab(tabId, { action: "init" });
+    console.log(response)
+    if (response.status === "opened") {
       return tabId;
     }
   } catch (error) {
