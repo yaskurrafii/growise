@@ -1,7 +1,7 @@
 import { Button, Card, Divider, Form, Input, Spin, Typography } from "antd";
 import { Container } from "react-bootstrap";
 import { LogoIcon } from "../dashboard/components/Navbar/Icon";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { RegisterApi } from "@/apis/api";
 import { useState } from "react";
 import axios from "axios";
@@ -12,8 +12,8 @@ export default function Register() {
   const onFinish = (values) => {
     setLoading(true);
     RegisterApi(values).then((resp) => {
-      console.log(resp.data);
       setLoading(false);
+      return redirect("/login")
     });
   };
 
@@ -40,7 +40,7 @@ export default function Register() {
             </div>
             <Form.Item
               label="Full name"
-              name="full name"
+              name="fullname"
               rules={[
                 { required: true, message: "Please input your full name!" },
               ]}

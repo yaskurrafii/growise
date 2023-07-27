@@ -1,5 +1,6 @@
 import axios from "axios";
 import * as url from "./url";
+import { redirect } from "react-router-dom";
 
 /**
  * Setting up axios base URL
@@ -12,13 +13,14 @@ axios.defaults.baseURL = url.baseURL;
  * @returns Response Object
  */
 export async function RegisterApi(data) {
+  console.log(data);
   if (data.password !== data.repeatpassword) {
     console.log("Password not same");
   } else {
     return await axios
-      .post("http://127.0.0.1:8000/login/", data)
+      .post(url.registerUrl, data)
       .then((response) => {
-        console.log("Register berhasil ", response.data);
+        return 
       })
       .catch((error) => {
         console.log("Error register ", error.response.data);

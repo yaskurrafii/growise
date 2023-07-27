@@ -4,7 +4,6 @@ import { LogoIcon } from "../dashboard/components/Navbar/Icon";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { LoginApi } from "@/apis/api";
-import axios from "axios";
 
 export default function Login() {
   const [loading, setLoading] = useState(false)
