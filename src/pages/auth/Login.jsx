@@ -4,6 +4,7 @@ import { LogoIcon } from "../dashboard/components/Navbar/Icon";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { LoginApi } from "@/apis/api";
+import axios from "axios";
 
 export default function Login() {
   const [loading, setLoading] = useState(false)
@@ -14,6 +15,17 @@ export default function Login() {
       console.log(resp.data)
       setLoading(false)
     })
+    axios
+      .post("http://127.0.0.1:8000/login/", {
+        username: values.username,
+        password: values.password,
+      })
+      .then((response) => {
+        console.log("Login Success : ", response.data);
+      })
+      .catch((error) => {
+        console.log("Login Error : ", error.response.data);
+      });
   };
 
   return (

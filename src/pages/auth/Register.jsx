@@ -4,6 +4,7 @@ import { LogoIcon } from "../dashboard/components/Navbar/Icon";
 import { Link } from "react-router-dom";
 import { RegisterApi } from "@/apis/api";
 import { useState } from "react";
+import axios from "axios";
 
 export default function Register() {
   const [loading, setLoading] = useState(false)
@@ -14,6 +15,22 @@ export default function Register() {
       console.log(resp.data)
       setLoading(false)
     })
+    if (values.password !== values.repeatpassword) {
+      console.log("Password not same");
+    } else {
+      axios
+        .post("http://127.0.0.1:8000/login/", values)
+        .then((response) => {
+          console.log("Register berhasil ", response.data);
+        })
+        .catch((error) => {
+          console.log("Error register ", error.response.data);
+        });
+    }
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
   return (
     <div
