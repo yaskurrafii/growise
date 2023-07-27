@@ -3,12 +3,10 @@ import ReactDOM from "react-dom/client";
 import "./assets/scss/styles.scss";
 import { Provider } from "jotai";
 import { RouterProvider } from "react-router-dom";
-import { createHashRouter } from "react-router-dom";
 import { router } from "./router";
 
 // production
 
-let injected;
 const bodyDom = document.body;
 var initDom = document.createElement("div");
 initDom.id = "growise-crawler";
