@@ -13,11 +13,10 @@ var initDom = document.createElement("div");
 initDom.id = "growise-crawler";
 
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-  console.log(message, sender)
-  if (message.action === "close") {
+  if (document.getElementById("growise-crawler") !== null) {
     document.getElementById("growise-crawler").remove();
     sendResponse({ status: "closed" });
-  } else if (message.action === "open" || message.action === "init") {
+  } else if (message.action === "init" || message.action === "toggle") {
     bodyDom.insertBefore(initDom, bodyDom.childNodes[0]);
     ReactDOM.createRoot(document.getElementById("growise-crawler")).render(
       <React.StrictMode>
