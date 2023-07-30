@@ -11,6 +11,7 @@
   color: white;
   width: 100%;
   height: 100%;
+  z-index: 100000;
   &__single,
   &__list {
     background: $bright-grey;
@@ -134,5 +135,12 @@
     width: 316px;
     top: 20px;
     right: 20px;
+    z-index: 100000;
   }
+}
+
+.highlightEl {
+  z-index: 1000000;
+  background-color: white;
+  outline: solid 2px #f5c843;
 }

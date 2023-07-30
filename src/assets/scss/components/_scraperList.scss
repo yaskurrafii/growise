@@ -1,6 +1,7 @@
 @import "../variables/color";
 
 .scraper-list {
+  z-index: 10000;
   &__header {
     background: $blue;
     &--name {

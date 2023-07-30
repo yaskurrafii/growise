@@ -1,4 +1,4 @@
-export const Tips = ({ className, children }) => {
+export const Tips = ({ className="", children }) => {
   const cn = `scraper-tools__tips position-relative d-flex justify-center flex-column ${className}`;
   return (
     <div className={cn}>

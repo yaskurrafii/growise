@@ -39,3 +39,12 @@ body {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+.filtered {
+  background-color: rgba(0,0,0,0.5);
+  filter: alpha(opacity=50); /* ie 5-7 */
+  -moz-opacity: 0.5; /* netscape */
+  -khtml-opacity: 0.5; /* safari 1.x */
+  opacity: 0.5;
+  background-color: grey;
+}
