@@ -1,0 +1,12 @@
+@import "../variables/color";
+
+.scraper-list {
+  &__header {
+    background: $blue;
+    &--name {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+  }
+}

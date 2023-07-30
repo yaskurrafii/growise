@@ -1,3 +1,4 @@
+/* global chrome */
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./assets/scss/styles.scss";
@@ -8,6 +9,7 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
 
 // production
+
 const bodyDom = document.body;
 var initDom = document.createElement("div");
 initDom.id = "growise-crawler";

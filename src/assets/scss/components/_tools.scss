@@ -1,0 +1,18 @@
+@import "../variables/color";
+
+.scraper-tools {
+  &__actions {
+    overflow: hidden;
+    &-title {
+      color: white;
+      font-size: 20px;
+      padding: 10px 20px;
+      background: $blue;
+    }
+    &-body {
+      color: $medium-grey;
+      background: $bright-grey;
+      padding: 40px 50px;
+    }
+  }
+}

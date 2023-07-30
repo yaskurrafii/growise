@@ -6,67 +6,11 @@
   background-color: grey;
 }
 
-.build__scraper-name {
-  & h1{
-    padding-bottom: 32px;
-  }
-  &-navigation {
-    display: flex;
-    padding-top: 20px;
-    justify-content: center;
-    gap: 40px;
-    & button {
-      color: white;
-    }
-  }
-  #scraper-form-name {
-    background-color: $bright-grey;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 40px;
-    border-radius: 20px;
-    & input[type="text"] {
-      color: $blue;
-      text-align: center;
-      font-size: 22px;
-      height: 60px;
-      width: 40vw;
-      box-sizing: border-box;
-      padding: 10px;
-    }
-    & h2 {
-      color: $dark-gray;
-    }
-    & h3 {
-      color: $medium-grey;
-    }
-  }
-}
-
-#scraper-type-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-
-  & button {
-    color: white;
-  }
-}
-
 .build-scraper {
   text-align: center;
   color: white;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   &__single,
   &__list {
     background: $bright-grey;
@@ -118,5 +62,77 @@
     opacity: 0;
     width: 0;
     height: 0;
+  }
+}
+
+.build__scraper-name,
+.build__scraper-type {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.build__scraper-name {
+  flex-direction: column;
+  & h1 {
+    padding-bottom: 32px;
+  }
+  &-navigation {
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
+    gap: 40px;
+    & button {
+      color: white;
+    }
+  }
+
+  #scraper-form-name {
+    background-color: $bright-grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    border-radius: 20px;
+    & input[type="text"] {
+      color: $blue;
+      text-align: center;
+      font-size: 22px;
+      height: 60px;
+      width: 40vw;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+    & h2 {
+      color: $dark-gray;
+    }
+    & h3 {
+      color: $medium-grey;
+    }
+  }
+
+  #scraper-type-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    & button {
+      color: white;
+    }
+  }
+}
+
+.build__scraper-select {
+  width: 100%;
+  height: 100%;
+  &--tools-container {
+    width: 316px;
+    top: 20px;
+    right: 20px;
   }
 }
