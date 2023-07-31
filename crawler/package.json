@@ -1,0 +1,22 @@
+{
+  "name": "crawler-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^1.4.0",
+    "cheerio": "^1.0.0-rc.12"
+  },
+  "dependencies": {
+    "@xmldom/xmldom": "^0.8.10",
+    "readline-sync": "^1.4.10",
+    "xpath": "^0.0.33"
+  }
+}
