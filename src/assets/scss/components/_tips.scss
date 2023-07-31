@@ -1,0 +1,17 @@
+@import "../variables/color";
+
+.scraper-tools__tips {
+  z-index: 10000;
+  background: $white;
+  padding: 20px;
+  border: 1px solid $blue;
+  border-radius: 5px;
+  & .tips-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: $blue;
+  }
+  & .tips-body{
+    color: $medium-grey;
+  }
+}

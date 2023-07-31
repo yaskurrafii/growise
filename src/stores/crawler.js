@@ -7,6 +7,7 @@ export const crawlerTask = atom([]);
 export const crawlerData = atom({
   type: "",
   name: "",
+  actions:[],
 });
 
 export const formStep = atom(1);
