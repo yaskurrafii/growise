@@ -1,4 +1,4 @@
-import { useSetAtom } from "jotai";
+import { useAtom } from "jotai";
 import { useForm } from "react-hook-form";
 import { crawlerData } from "@/stores/crawler";
 import UIButton from "@/components/Button";
@@ -7,9 +7,10 @@ import { Link } from "react-router-dom";
 export const ScraperType = ({ setFormStep }) => {
   const { handleSubmit, register } = useForm();
 
-  const setData = useSetAtom(crawlerData);
+  const [data, setData] = useAtom(crawlerData);
 
-  const onSubmit = (data) => {
+  const onSubmit = (values) => {
+    data.type = values.type;
     setData({ ...data });
     setFormStep(2);
   };
@@ -23,7 +24,7 @@ export const ScraperType = ({ setFormStep }) => {
     }
   };
   return (
-    <>
+    <div className="build__scraper-type">
       <form id="scraper-type-form" onSubmit={handleSubmit(onSubmit)}>
         <h2>Build Scraper on this page</h2>
         <div className="build-scraper__wrapper">
@@ -81,6 +82,6 @@ export const ScraperType = ({ setFormStep }) => {
           </UIButton>
         </Link>
       </form>
-    </>
+    </div>
   );
 };

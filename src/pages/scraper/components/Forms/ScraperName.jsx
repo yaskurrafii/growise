@@ -13,8 +13,8 @@ export const ScraperName = ({ setFormStep }) => {
   const [data, setData] = useAtom(crawlerData);
 
   const onSubmit = (values) => {
-    const newData = { ...data, ...values };
-    setData(newData);
+    data.name = values.name;
+    setData({ ...data });
   };
 
   return (
@@ -35,10 +35,20 @@ export const ScraperName = ({ setFormStep }) => {
         </div>
       </form>
       <div className="build__scraper-name-navigation">
-        <UIButton size="sm" variant="outline" color="white" onClick={() => setFormStep(1)}>
+        <UIButton
+          size="sm"
+          variant="outline"
+          color="white"
+          onClick={() => setFormStep(1)}
+        >
           Previous
         </UIButton>
-        <UIButton size="sm" variant="outline" color="white" onClick={() => setFormStep(2)}>
+        <UIButton
+          size="sm"
+          variant="outline"
+          color="white"
+          onClick={() => setFormStep(3)}
+        >
           Next
         </UIButton>
       </div>

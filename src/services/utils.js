@@ -8,12 +8,6 @@ async function getCurrentTab() {
 
 async function injectCssScript(tabId) {
   try {
-    await chrome.scripting.insertCSS({
-      target: { tabId },
-      files: ["assets/main.css"],
-    });
-    console.log("CSS injected!");
-
     const injectionResults = await chrome.scripting.executeScript({
       target: { tabId },
       files: ["app.js"],
