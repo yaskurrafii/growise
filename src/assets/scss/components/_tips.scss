@@ -6,12 +6,12 @@
   padding: 20px;
   border: 1px solid $blue;
   border-radius: 5px;
-  & .tips-title {
+  &-title {
     font-size: 18px;
     font-weight: bold;
     color: $blue;
   }
-  & .tips-body{
+  &-body{
     color: $medium-grey;
   }
 }

@@ -31,4 +31,4 @@ export const handleClick = (event) => {
   copyToClipboard(cssSelector);
   event.preventDefault();
   console.log(`CSS Selector copied to clipboard: ${cssSelector}`);
-}
+};

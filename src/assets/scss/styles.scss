@@ -1,5 +1,6 @@
 @import "pages/scraper", "components/button", "components/tools",
-  "components/tips", "components/scraperList", "pages/dashboard";
+  "components/tips", "components/getData", "components/scraperList",
+  "pages/dashboard";
 
 // development
 h3,
@@ -41,7 +42,7 @@ body {
 }
 
 .filtered {
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   filter: alpha(opacity=50); /* ie 5-7 */
   -moz-opacity: 0.5; /* netscape */
   -khtml-opacity: 0.5; /* safari 1.x */

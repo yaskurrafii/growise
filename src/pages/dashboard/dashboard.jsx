@@ -4,6 +4,7 @@ import FilterBar from "./components/FilterBar";
 import Crawler from "./components/Crawler";
 
 function Dashboard() {
+  document.getElementById("growise-crawler").style.pointerEvents = "auto";
   return (
     <>
       <div id="crawler" className="growise-scraper">
