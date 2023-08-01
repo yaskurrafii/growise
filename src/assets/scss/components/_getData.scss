@@ -1,0 +1,12 @@
+@import "../variables/color";
+.scraper-tools--form-get-data {
+  z-index: 10000;
+  background-color: white;
+  padding: 21px;
+  width: fit-content;
+  & p {
+    margin: 0 !important;
+    font-size: 14px;
+    color: black;
+  }
+}

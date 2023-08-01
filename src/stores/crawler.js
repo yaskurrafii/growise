@@ -11,3 +11,4 @@ export const crawlerData = atom({
 });
 
 export const formStep = atom(1);
+export const hoverActive = atom(true);

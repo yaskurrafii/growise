@@ -57,13 +57,6 @@
     display: flex;
     gap: 20px;
   }
-
-  [type="radio"] {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
 }
 
 .build__scraper-name,
@@ -125,6 +118,12 @@
     & button {
       color: white;
     }
+    & [type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
   }
 }
 
@@ -141,6 +140,8 @@
 
 .highlightEl {
   z-index: 1000000;
-  background-color: white;
-  outline: solid 2px #f5c843;
+  background-color: white !important;
+  outline: solid 2px #f5c843 !important;
+  color: black !important;
+  cursor: pointer;
 }
