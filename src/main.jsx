@@ -3,7 +3,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./assets/scss/styles.scss";
 import "bootstrap/dist/css/bootstrap.css";
-// import Dashboard from "./pages/dashboard";
 import { Provider } from "jotai";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router";

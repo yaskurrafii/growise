@@ -3,11 +3,43 @@
 .scraper-list {
   z-index: 10000;
   &__header {
+    button {
+      border-radius: 4px;
+      padding: 4px 10px;
+    }
+    color: white;
     background: $blue;
     &--name {
       font-size: 20px;
       font-weight: 600;
     }
-
+    &__right--dropdown {
+      &-items {
+        width: 352px;
+        height: 204px;
+        top: 40px;
+        right: 0;
+        font-size: 14px;
+        z-index: 100000;
+        border: 1px solid var(--brand-frame, #c6c6c6);
+        border-radius: 5px;
+        padding: 16px 20px;
+        background: white;
+        box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.05);
+        &--desc {
+          font-size: 10px;
+        }
+        & .ant-radio {
+          align-self: flex-start;
+        }
+      }
+      &-pagination {
+        text-align: center;
+        bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid var(--brand-frame, #c6c6c6);
+        background: var(--brand-white, #fff);
+      }
+    }
   }
 }

@@ -99,6 +99,9 @@ button:active {
     &__outline-white {
       @include outline(sm, $white);
     }
+    &__outline-blue {
+      @include outline(sm, $blue);
+    }
   }
   &-md {
     &__base-ly {

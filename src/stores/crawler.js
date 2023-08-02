@@ -11,4 +11,10 @@ export const crawlerData = atom({
 });
 
 export const formStep = atom(1);
+
+//scraper select element
 export const hoverActive = atom(true);
+
+//scraper mode
+//ex: "scraperElement", "paginationElement"
+export const mode = atom({target:"select"})

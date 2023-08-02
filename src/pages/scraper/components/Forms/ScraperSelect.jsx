@@ -19,19 +19,20 @@ export const ScraperSelect = () => {
     setHoverActive(false);
     var { x, y } = event.target.getBoundingClientRect();
     handleClick(event);
+
     var content = event.target.innerText || event.target.textContent;
+
     const container = document.createElement("div");
     container.className = "scraper-tools--form-get-data-container";
     container.style.position = "absolute";
-    container.style.left = `${
-      window.scrollX + x + event.target.offsetWidth / 2 - 120
-    }px`;
+    container.style.left = `${window.scrollX + x}px`;
     container.style.top = `${
       window.scrollY + y + event.target.offsetHeight + 6
     }px`;
     container.style.width = "241px";
     container.style.height = "223px";
     container.style.zIndex = "100000";
+
     render(<FormGetData content={content} />, container);
     document.body.insertAdjacentElement("afterbegin", container);
   };
@@ -57,6 +58,16 @@ export const ScraperSelect = () => {
             )
           )
         ) {
+          const hasExcludedAncestor = classNamesToExclude.some(
+            (excludedClass) => {
+              return target.closest(`.${excludedClass}`) !== null;
+            }
+          );
+
+          if (hasExcludedAncestor) {
+            return;
+          }
+
           target.classList.add("highlightEl");
           target.addEventListener("click", _handleClick);
         }
@@ -91,11 +102,11 @@ export const ScraperSelect = () => {
     <div className="build__scraper-select">
       <div className="build__scraper-select--tools-container d-flex flex-column position-fixed gap-2">
         <Actions />
-        <Tips>
-          <div className="scraper-tools__tips-title">
+        <Tips tipsFor="select">
+          <div className="scraper-tools__tips-select--title">
             Start setting up the script
           </div>
-          <div className="scraper-tools__tips-body">
+          <div className="scraper-tools__tips-select--body">
             Use the mouse to select the field you want to scrape
           </div>
         </Tips>

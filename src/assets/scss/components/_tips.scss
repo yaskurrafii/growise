@@ -1,17 +1,38 @@
 @import "../variables/color";
 
 .scraper-tools__tips {
-  z-index: 10000;
-  background: $white;
-  padding: 20px;
-  border: 1px solid $blue;
-  border-radius: 5px;
-  &-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: $blue;
+  &-select,
+  &-pagination {
+    z-index: 10000;
+    background: $white;
+    border: 1px solid $blue;
+    border-radius: 5px;
   }
-  &-body{
-    color: $medium-grey;
+  &-select {
+    position: relative;
+    padding: 20px;
+    &--title {
+      font-size: 18px;
+      font-weight: bold;
+      color: $blue;
+    }
+    &--body {
+      color: $medium-grey;
+    }
+  }
+  &-pagination {
+    position: absolute;
+    padding: 32px 20px;
+    width: 300px;
+    left: -80px;
+    bottom: 45px;
+    align-items: center;
+    gap: 4px;
+    &--title {
+      font-size: 20px;
+      font-weight: bold;
+      color: $blue;
+      text-align: center;
+    }
   }
 }
