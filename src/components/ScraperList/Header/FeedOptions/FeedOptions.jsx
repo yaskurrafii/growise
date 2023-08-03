@@ -4,14 +4,24 @@ import { useState } from "react";
 import { DropdownOptions } from "./DropdownOptions";
 import PaginationStep from "./PaginationStep";
 
-export const FeedOptions = () => {
+export const FeedOptions = ({isTableOpen, setOpenTable}) => {
   const [openDropdown, setOpenDropdown] = useState(false);
   const [feedOptionVal, setFeedOption] = useAtom(feedOption);
+  const toggleDropdown = () => {
+    if(!isTableOpen){
+      setOpenTable(true);
+    }
+    setOpenDropdown(!openDropdown);
+  };
 
   return (
     <div className="position-relative">
+      <PaginationStep
+        setFeedOptions={setFeedOption}
+        feedOption={feedOptionVal}
+      />
       <button
-        onClick={() => setOpenDropdown(!openDropdown)}
+        onClick={toggleDropdown}
         className="scraper-list__header__right--dropdown-btn d-flex align-items-center gap-3"
       >
         <span>page feed option</span>
@@ -30,12 +40,6 @@ export const FeedOptions = () => {
         </svg>
       </button>
       {openDropdown && <DropdownOptions setOpenDropdown={setOpenDropdown} />}
-      {feedOptionVal == 2 && (
-        <PaginationStep
-          setFeedOptions={setFeedOption}
-          feedOption={feedOptionVal}
-        />
-      )}
     </div>
   );
 };

@@ -23,4 +23,4 @@ export const mode = atom("scraper");
 //ex: "1 == 'no-pagination'", "2 == 'click'", "3 == 'infinite-scroll'"
 export const feedOption = atom(1);
 export const paginationBtn = atom(null);
-export const paginationStep = atom(1);
+export const paginationStep = atom(0);

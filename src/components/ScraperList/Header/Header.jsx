@@ -15,7 +15,7 @@ export const Header = ({ isOpen, setOpenTable }) => {
         <Status status={"Saving..."} />
       </div>
       <div className="scraper-list__header__right d-flex align-items-center gap-3">
-        <FeedOptions />
+        <FeedOptions isTableOpen={isOpen} setOpenTable={setOpenTable} />
         <ToggleTable isOpen={isOpen} setOpenTable={setOpenTable} />
         <ExitToApp />
       </div>

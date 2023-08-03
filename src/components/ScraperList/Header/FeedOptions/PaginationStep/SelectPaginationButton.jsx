@@ -1,8 +1,12 @@
 import { Tips } from "@/components/Tools/Tips";
 import UIButton from "@/components/Button";
-export const SelectPaginationButton = ({ setFeedOptions }) => {
+export const SelectPaginationButton = ({ setFeedOptions, setPopoverOpen }) => {
   const cancelPagination = () => {
+    setPopoverOpen(false);
     setFeedOptions(1);
+  };
+  const closePopover = () => {
+    setPopoverOpen(false);
   };
   return (
     <Tips tipsFor="pagination">
@@ -23,9 +27,9 @@ export const SelectPaginationButton = ({ setFeedOptions }) => {
         height="21"
         viewBox="0 0 21 21"
         fill="none"
-        onClick={() => closeTips()}
+        onClick={closePopover}
         className="position-absolute"
-        style={{ top: "8px", right: "8px" }}
+        style={{ cursor: "pointer", top: "8px", right: "8px" }}
       >
         <path
           d="M4.5 18L3 16.5L9 10.5L3 4.5L4.5 3L10.5 9L16.5 3L18 4.5L12 10.5L18 16.5L16.5 18L10.5 12L4.5 18Z"

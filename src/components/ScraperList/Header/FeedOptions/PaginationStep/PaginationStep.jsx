@@ -1,38 +1,45 @@
 import { useAtom, useSetAtom } from "jotai";
-import { mode, paginationStep } from "@/stores/crawler";
+import { hoverActive, mode, paginationStep } from "@/stores/crawler";
 import { useEffect, useState } from "react";
 import { SelectPaginationButton } from "./SelectPaginationButton";
 import { InputPageNumber } from "./InputPageNumber";
+import { Popover } from "antd";
 
 export const PaginationStep = ({ setFeedOptions, feedOption }) => {
   const [paginationStepVal, setPaginationStep] = useAtom(paginationStep);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [popoverOpen, setPopoverOpen] = useState(false);
   const setMode = useSetAtom(mode);
 
   useEffect(() => {
-    if (paginationStepVal) {
+    if (paginationStepVal === 0 && feedOption === 2) {
       setMode("pagination");
     }
-    if (feedOption != 2) {
-      setPaginationStep(1);
-    }
     if (feedOption == 2) {
-      setIsModalOpen(true);
+      setPopoverOpen(true);
     }
   }, [paginationStepVal, feedOption]);
 
-  return feedOption === 2 ? (
-    <div className="pagination-step-form">
-      {paginationStepVal === 1 && (
-        <SelectPaginationButton setFeedOptions={setFeedOptions} />
-      )}
-      {paginationStepVal === 2 && (
-        <InputPageNumber
-          isModalOpen={isModalOpen}
-          setIsModalOpen={setIsModalOpen}
-          setFeedOptions={setFeedOptions}
-        />
-      )}
-    </div>
-  ) : null;
+  return (
+    <Popover
+      rootClassName="pagination-step-form"
+      close={setPopoverOpen}
+      open={popoverOpen}
+      arrow={false}
+      zIndex={1000000}
+      content={
+        paginationStepVal === 0 ? (
+          <SelectPaginationButton
+            setPopoverOpen={setPopoverOpen}
+            setFeedOptions={setFeedOptions}
+          />
+        ) : (
+          <InputPageNumber
+            setPaginationStep={setPaginationStep}
+            setPopoverOpen={setPopoverOpen}
+            setFeedOptions={setFeedOptions}
+          />
+        )
+      }
+    ></Popover>
+  );
 };

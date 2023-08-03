@@ -9,8 +9,8 @@ export const UIButton = ({
 }) => {
   const cn = `btn-${size}__${variant}-${color}`;
   const handleClick = (event) => {
-    event.preventDefault();
-    onClick();
+    // event.preventDefault();
+   onClick();
   };
   return (
     <button type={type} className={cn} onClick={handleClick}>
