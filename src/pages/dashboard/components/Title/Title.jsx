@@ -12,7 +12,7 @@ export const Title = () => {
   return (
     <div className="title">
       <h1>Scraper</h1>
-      <Link to={`/build-scraper`}>
+      <Link to="/build-scraper">
         <UIButton onClick={handleAddCrawler} size="lg">
           Create Scraper
         </UIButton>

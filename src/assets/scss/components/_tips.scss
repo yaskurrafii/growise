@@ -1,14 +1,34 @@
 @import "../variables/color";
 
 .scraper-tools__tips {
-  &-select,
-  &-pagination {
+  &-pagination,
+  &-pagination-click {
     z-index: 10000;
     background: $white;
     border: 1px solid $blue;
     border-radius: 5px;
+    position: absolute;
+    bottom: 10px;
+    left: -60px;
+    width: 300px;
+    padding: 32px 20px;
+    align-items: center;
+    gap: 4px;
+    &--title {
+      font-size: 20px;
+      font-weight: bold;
+      color: $blue;
+      text-align: center;
+    }
+    &--body {
+      color: $medium-grey;
+    }
   }
   &-select {
+    z-index: 10000;
+    background: $white;
+    border: 1px solid $blue;
+    border-radius: 5px;
     position: relative;
     padding: 20px;
     &--title {
@@ -18,21 +38,6 @@
     }
     &--body {
       color: $medium-grey;
-    }
-  }
-  &-pagination {
-    position: absolute;
-    padding: 32px 20px;
-    width: 300px;
-    left: -80px;
-    bottom: 45px;
-    align-items: center;
-    gap: 4px;
-    &--title {
-      font-size: 20px;
-      font-weight: bold;
-      color: $blue;
-      text-align: center;
     }
   }
 }
