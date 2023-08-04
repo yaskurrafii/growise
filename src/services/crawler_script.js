@@ -26,9 +26,11 @@ function generateCssSelector(el) {
   return parts.join(" > ");
 }
 
-export const handleClick = (event) => {
+const handleClick = (event) => {
   const cssSelector = generateCssSelector(event.target);
   copyToClipboard(cssSelector);
   event.preventDefault();
   console.log(`CSS Selector copied to clipboard: ${cssSelector}`);
 };
+
+export default generateCssSelector;

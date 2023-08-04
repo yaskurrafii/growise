@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { crawlerData } from "@/stores/crawler";
 import UIButton from "@/components/Button";
 import { Link } from "react-router-dom";
+import { Button } from "antd";
 
 export const ScraperType = ({ setFormStep }) => {
   const { handleSubmit, register } = useForm();
@@ -77,9 +78,9 @@ export const ScraperType = ({ setFormStep }) => {
           </label>
         </div>
         <Link to={`/dashboard`}>
-          <UIButton size="sm" variant="outline" color="white">
+          <Button className="ui-btn-outline-yellow" type="default" ghost>
             Cancel
-          </UIButton>
+          </Button>
         </Link>
       </form>
     </div>

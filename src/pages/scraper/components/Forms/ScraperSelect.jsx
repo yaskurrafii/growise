@@ -1,9 +1,10 @@
 import { render } from "react-dom";
 import { Actions } from "@/components/Tools/Actions";
 import ScraperList from "@/components/ScraperList";
-import { useEffect, useState } from "react";
-import { handleClick } from "../../../../services/crawler_script";
+import { useCallback, useEffect, useState } from "react";
 import { FormGetData } from "@/components/Tools/FormGetData";
+import generateCssSelector from "@/services/crawler_script";
+
 import {
   hoverActive,
   paginationBtn,
@@ -22,35 +23,39 @@ export const ScraperSelect = () => {
   const [hoveredElement, setHoveredElement] = useState(null);
   const [closeTips, setCloseTips] = useState(false);
 
-  const _handleClick = (event) => {
-    event.preventDefault();
-    setHoveredElement(event.target);
-    setHoverActive(false);
-    if (modeVal === "pagination") {
-      setPaginationStep(1);
-      setPaginationBtn(event.target);
-      setModeVal("scraper");
-    } else {
-      var { x, y } = event.target.getBoundingClientRect();
-      handleClick(event);
+  const _handleClick = useCallback(
+    (event) => {
+      event.preventDefault();
 
-      var content = event.target.innerText || event.target.textContent;
+      const target = event.target;
+      const cssSelector = generateCssSelector(target);
 
-      const container = document.createElement("div");
-      container.className = "scraper-tools--form-get-data-container";
-      container.style.position = "absolute";
-      container.style.left = `${window.scrollX + x}px`;
-      container.style.top = `${
-        window.scrollY + y + event.target.offsetHeight + 6
-      }px`;
-      container.style.width = "241px";
-      container.style.height = "223px";
-      container.style.zIndex = "100000";
+      setHoveredElement(target);
+      setHoverActive(false);
 
-      render(<FormGetData content={content} />, container);
-      document.body.insertAdjacentElement("afterbegin", container);
-    }
-  };
+      if (modeVal === "pagination") {
+        setPaginationStep(1);
+        setPaginationBtn(target);
+        setModeVal("scraper");
+      } else {
+        var { x, y } = target.getBoundingClientRect();
+
+        var text = target.innerText || target.textContent;
+        var link = target.href;
+
+        const container = document.createElement("div");
+        container.className = "scraper-tools--form-get-data-container";
+        container.style.position = "absolute";
+        container.style.left = `${window.scrollX + x + 120}px`;
+        container.style.top = `${
+          window.scrollY + y + 235 + event.target.offsetHeight
+        }px`;
+        document.body.insertAdjacentElement("afterbegin", container);
+        render(<FormGetData content={text} link={link} />, container);
+      }
+    },
+    [modeVal]
+  );
 
   useEffect(() => {
     const handleMouseOver = (event) => {

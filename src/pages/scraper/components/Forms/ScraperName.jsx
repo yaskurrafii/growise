@@ -1,7 +1,7 @@
 import { useAtom } from "jotai";
 import { useForm } from "react-hook-form";
 import { crawlerData } from "@/stores/crawler";
-import UIButton from "@/components/Button";
+import { Button } from "antd";
 
 export const ScraperName = ({ setFormStep }) => {
   const {
@@ -35,22 +35,24 @@ export const ScraperName = ({ setFormStep }) => {
         </div>
       </form>
       <div className="build__scraper-name-navigation">
-        <UIButton
-          size="sm"
-          variant="outline"
-          color="white"
+        <Button
+          className="ui-btn-outline-yellow"
           onClick={() => setFormStep(1)}
+          type="default"
+          info
+          ghost
         >
           Previous
-        </UIButton>
-        <UIButton
-          size="sm"
-          variant="outline"
-          color="white"
+        </Button>
+        <Button
+          className="ui-btn-outline-yellow"
           onClick={() => setFormStep(3)}
+          type="default"
+          info
+          ghost
         >
           Next
-        </UIButton>
+        </Button>
       </div>
     </div>
   );
