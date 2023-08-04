@@ -18,7 +18,22 @@
     gap: 20px;
   }
 }
+.nav-username--wrapper {
+  padding: 18px 9px 18px 22px;
+}
 
+.workspace-item {
+  &--title {
+    font-weight: 700;
+    color: $medium-grey;
+  }
+}
+
+.sidemenu--wrapper {
+  & hr {
+    margin: 0 0 8px;
+  }
+}
 //title section
 .title {
   padding: 20px 30px;
