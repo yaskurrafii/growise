@@ -1,5 +1,15 @@
 @import "../variables/color";
 
+.ant-btn.ui-btn-outline-yellow:hover {
+  background: $dark-yellow !important;
+  border-color: $dark-yellow !important;
+  color: white !important;
+}
+
+.ant-btn{
+  border-radius: 17px !important;
+}
+
 button {
   text-decoration: none;
   transition: all 250ms;

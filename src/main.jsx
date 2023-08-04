@@ -4,11 +4,12 @@ import ReactDOM from "react-dom/client";
 import "./assets/scss/styles.scss";
 import "bootstrap/dist/css/bootstrap.css";
 import { Provider } from "jotai";
+import { ConfigProvider } from "antd";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
+import theme from "./lib/theme";
 
 // production
-
 const bodyDom = document.body;
 var initDom = document.createElement("div");
 initDom.id = "growise-crawler";
@@ -20,10 +21,12 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   } else if (message.action === "init" || message.action === "toggle") {
     bodyDom.insertBefore(initDom, bodyDom.childNodes[0]);
     ReactDOM.createRoot(document.getElementById("growise-crawler")).render(
-      <React.StrictMode>
-        <RouterProvider router={router} />
-        <Provider></Provider>
-      </React.StrictMode>
+      <ConfigProvider theme={theme}>
+        <React.StrictMode>
+          <RouterProvider router={router} />
+          <Provider></Provider>
+        </React.StrictMode>
+      </ConfigProvider>
     );
     sendResponse({ status: "opened" });
   }
@@ -32,9 +35,11 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 // development
 // ReactDOM.createRoot(document.getElementById("root")).render(
 //   <React.StrictMode>
-//     <div className="growise-crawler">
-//       <RouterProvider router={router} />
-//       <Provider></Provider>
-//     </div>
+//     <ConfigProvider theme={theme}>
+//       <div className="growise-crawler">
+//         <RouterProvider router={router} />
+//         <Provider></Provider>
+//       </div>
+//     </ConfigProvider>
 //   </React.StrictMode>
 // );

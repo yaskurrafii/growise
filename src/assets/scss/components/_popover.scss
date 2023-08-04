@@ -3,3 +3,43 @@
     padding: 0px;
   }
 }
+
+.form-get-data {
+  & .ant-popover-inner {
+    width: 241px;
+    height: 223px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 0 10px;
+  }
+  & button {
+    width: 100px;
+    align-self: center;
+  }
+  & form {
+    height: 221px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 6px;
+  }
+  & span.ant-radio + span {
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  & span.value {
+    color: $gray;
+    font-size: 11px;
+    margin-left: 5px;
+  }
+}
+
+.scraper-tools--form-get-data-container {
+  position: "absolute";
+  width: "241px";
+  height: "223px";
+  z-index: "100000";
+}
