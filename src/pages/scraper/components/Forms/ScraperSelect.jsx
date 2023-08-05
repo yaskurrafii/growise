@@ -14,7 +14,7 @@ import {
 import { useAtom, useSetAtom } from "jotai";
 
 export const ScraperSelect = () => {
-  // document.getElementById("growise-crawler").style.pointerEvents = "none";
+  document.getElementById("growise-crawler").style.pointerEvents = "none";
 
   const setPaginationBtn = useSetAtom(paginationBtn);
   const setPaginationStep = useSetAtom(paginationStep);

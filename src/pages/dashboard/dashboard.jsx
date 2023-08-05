@@ -12,8 +12,8 @@ const siderStyle = {
 };
 
 function Dashboard() {
-  // document.getElementById("growise-crawler").style.pointerEvents = "auto";
-  // document.getElementById("growise-crawler").style.backgroundColor = "#2f364f";
+  document.getElementById("growise-crawler").style.pointerEvents = "auto";
+  document.getElementById("growise-crawler").style.backgroundColor = "#2f364f";
   const [tab, setTab] = useState("scraper");
   return (
     <div id="crawler" className="growise-scraper">

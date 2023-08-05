@@ -1,19 +1,26 @@
 @import "../variables/color";
 
-.ant-btn.ui-btn-outline-yellow:hover {
-  background: $dark-yellow !important;
-  border-color: $dark-yellow !important;
-  color: white !important;
-  & .ui-btn-icon-scraper {
-    stroke: white !important;
-    fill: white !important;
-  }
-}
-
 .ant-btn {
   &.ui-btn-outline-yellow {
     border-color: $dark-yellow !important;
     color: $dark-yellow !important;
+    &:hover {
+      background: $dark-yellow !important;
+      border-color: $dark-yellow !important;
+      color: white !important;
+      & .ui-btn-icon-scraper {
+        stroke: white !important;
+        fill: white !important;
+      }
+    }
+  }
+  &.ui-btn-outline-white {
+    border-color: white !important;
+    color: white !important;
+    &:hover {
+      background: $dark-yellow !important;
+      border-color: $dark-yellow !important;
+    }
   }
   border-radius: 17px !important;
 }
