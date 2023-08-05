@@ -14,8 +14,6 @@ export const Navbar = ({ tab }) => {
   return (
     <Header
       style={{
-        position: 'sticky',
-        top:0,
         zIndex: 10,
         boxShadow: "rgba(0, 0, 0, 0.10) 0 2px 14px",
         background: "white",

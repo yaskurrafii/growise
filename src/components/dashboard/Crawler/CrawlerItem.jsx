@@ -1,3 +1,4 @@
+import { CrawlerIcon, DocumentIcon, MoreIcon } from "@/components/Icons";
 import { Button, Checkbox, Space } from "antd";
 import { Link } from "react-router-dom";
 
@@ -29,21 +30,34 @@ export const CrawlerItem = ({ data }) => {
             </div>
             <Space direction="horizontal" size="small">
               {data.dataField.map((value, index) => {
-                return <div key={index} className="ui-outline-container">{value.name}</div>;
+                return (
+                  <div key={index} className="ui-outline-container">
+                    {value.name}
+                  </div>
+                );
               })}
             </Space>
           </div>
         </Space>
       </Space>
       <div className="d-flex flex-column justify-content-between">
-        <Space direction="vertical" align="end">
-          <Button type="default">Scrape</Button>
-          <Space direction="horizontal">
-            <div role="button">
-              <p className="ui-text-bold--underline">Check results</p>
+        <Space direction="vertical" size="middle" align="end">
+          <Button
+            className="ui-btn-outline-yellow align-items-center d-flex gap-2"
+            type="default"
+          >
+            Scrape
+            <CrawlerIcon className="ui-btn-icon-scraper" color={"#F7CD47"} />
+          </Button>
+          <Space size="middle" direction="horizontal">
+            <div role="button" className="d-flex align-items-center gap-1">
+              <DocumentIcon />
+              <p className="ui-text-underline-bold">Check results</p>
             </div>
-            <Button type="text"></Button>
-            <Button type="text">More</Button>
+            <div role="button" className="d-flex align-items-center gap-1">
+              <MoreIcon />
+              <p className="ui-text-underline-bold">More</p>
+            </div>
           </Space>
         </Space>
         <p>{data.timestamp}</p>

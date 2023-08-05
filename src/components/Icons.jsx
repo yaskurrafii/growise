@@ -73,35 +73,35 @@ function CrawlerIcon(props) {
     >
       <path
         d="M12.562 19.304H4.247A1.247 1.247 0 013 18.057V7.246A1.247 1.247 0 014.247 6h14.136a1.247 1.247 0 011.247 1.247v5.405"
-        stroke="#1F4F99"
+        stroke={props.color ? props.color : "#1F4F99"}
         strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M3 7.247A1.247 1.247 0 014.247 6h14.136a1.247 1.247 0 011.247 1.247v3.742H3V7.247z"
-        stroke="#1F4F99"
+        stroke={props.color ? props.color : "#1F4F99"}
         strokeWidth={1.5}
       />
       <path
         d="M4.663 8.489a.831.831 0 111.663 0 .831.831 0 01-1.663 0zM7.157 8.489a.831.831 0 111.663 0 .831.831 0 01-1.663 0z"
-        fill="#1F4F99"
+        fill={props.color ? props.color : "#1F4F99"}
       />
       <path
         d="M15.958 14.234v.854l2.134 2.134m0 0H15.53l-.64-.64m3.2.64l-2.56 2.561v.854m6.402-6.403v.854L19.8 17.222m0 0h2.561l.64-.64m-3.2.64l2.56 2.561v.854"
-        stroke="#1F4F99"
+        stroke={props.color ? props.color : "#1F4F99"}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M17.238 18.926a1.708 1.708 0 103.415 0 1.708 1.708 0 00-3.415 0z"
-        stroke="#1F4F99"
+        stroke={props.color ? props.color : "#1F4F99"}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M18.092 16.37a.854.854 0 101.707 0 .854.854 0 00-1.707 0z"
-        stroke="#1F4F99"
+        stroke={props.color ? props.color : "#1F4F99"}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -309,6 +309,23 @@ function TrashIcon(props) {
   );
 }
 
+function DocumentIcon(props) {
+  return (
+    <svg
+      width={18}
+      height={18}
+      viewBox="0 0 18 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M5.696 1.125a2.286 2.286 0 00-2.285 2.286v2.578a5.181 5.181 0 011.142-.262V3.411a1.143 1.143 0 011.143-1.143h3.429v2.857a1.714 1.714 0 001.714 1.714h2.857v8a1.143 1.143 0 01-1.143 1.143h-.097c.13.369.13.774 0 1.143h.097a2.286 2.286 0 002.286-2.286v-8.67c0-.454-.181-.89-.503-1.21l-3.329-3.332a1.714 1.714 0 00-1.212-.502H5.696zm7.764 4.571h-2.62a.571.571 0 01-.572-.571v-2.62l3.192 3.191zm-5.94 8.347a4 4 0 11.808-.808l2.915 2.914a.572.572 0 01-.809.809L7.52 14.043zm.462-3.204a2.857 2.857 0 10-5.714 0 2.857 2.857 0 005.714 0z"
+        fill="#616161"
+      />
+    </svg>
+  );
+}
 export {
   LogoIcon,
   CrawlerIcon,
@@ -323,4 +340,5 @@ export {
   FilterIcon,
   CreateNewWorkspaceIcon,
   TrashIcon,
+  DocumentIcon,
 };
