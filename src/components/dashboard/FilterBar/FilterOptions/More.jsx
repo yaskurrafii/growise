@@ -15,7 +15,7 @@ const More = () => {
       trigger="click"
       arrow={false}
     >
-      <div onClick={open} className="d-flex align-items-center gap-1">
+      <div role="button" onClick={open} className="d-flex align-items-center gap-1">
         <MoreIcon />
         <p className="ui-text-underline">More</p>
       </div>

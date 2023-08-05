@@ -16,7 +16,7 @@ const AddTag = () => {
       trigger="click"
       arrow={false}
     >
-      <div onClick={open} className="d-flex align-items-center gap-1">
+      <div onClick={open} role="button" className="d-flex align-items-center gap-1">
         <TagIcon />
         <p className="ui-text-underline">Add Tag</p>
       </div>

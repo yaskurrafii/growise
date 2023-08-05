@@ -40,7 +40,7 @@ const Filter = () => {
         open={openFilter}
         content={
           <div>
-            <Form name="filter" onFinish={onFinish} style={{ maxWidth: 500 }}>
+            <Form name="filter" onFinish={onFinish} style={{ maxWidth: 600 }}>
               <Space direction="horizontal" size="middle">
                 <Form.Item name="categories">
                   <Checkbox.Group>
