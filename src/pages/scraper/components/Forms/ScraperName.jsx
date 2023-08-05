@@ -36,7 +36,7 @@ export const ScraperName = ({ setFormStep }) => {
       </form>
       <div className="build__scraper-name-navigation">
         <Button
-          className="ui-btn-outline-yellow"
+          className="ui-btn-outline-white"
           onClick={() => setFormStep(1)}
           type="default"
           info
@@ -45,7 +45,7 @@ export const ScraperName = ({ setFormStep }) => {
           Previous
         </Button>
         <Button
-          className="ui-btn-outline-yellow"
+          className="ui-btn-outline-white"
           onClick={() => setFormStep(3)}
           type="default"
           info

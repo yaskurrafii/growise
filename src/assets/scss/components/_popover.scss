@@ -43,3 +43,10 @@
   height: "223px";
   z-index: "100000";
 }
+
+.filter-popover {
+  & .ant-popover-content {
+    padding: 20px;
+    position: absolute;
+  }
+}
