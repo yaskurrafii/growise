@@ -36,6 +36,23 @@ export const crawlerTask = atom([
     ],
     timestamp: "Last execution time 2022.12.25 09:10",
   },
+  {
+    name: " 擷取資料範本-kkday全球樂園清單",
+    page: "www.google.com",
+    url: "https://www.kkday.com/zh-tw/product/115575",
+    dataField: [
+      {
+        name: "kkday旅遊標題",
+      },
+      { name: "kkday旅遊敘述" },
+      { name: "標題URl" },
+      { name: "購買量" },
+      { name: "購買量" },
+      { name: "標題URl" },
+      { name: "購買量" },
+    ],
+    timestamp: "Last execution time 2022.12.25 09:10",
+  },
 ]);
 
 //scraper data form multiple step

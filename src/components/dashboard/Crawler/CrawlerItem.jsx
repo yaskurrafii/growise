@@ -28,8 +28,8 @@ export const CrawlerItem = ({ data }) => {
               <a href="">Manage the field names</a>
             </div>
             <Space direction="horizontal" size="small">
-              {data.dataField.map((value) => {
-                return <div className="ui-outline-container">{value.name}</div>;
+              {data.dataField.map((value, index) => {
+                return <div key={index} className="ui-outline-container">{value.name}</div>;
               })}
             </Space>
           </div>
@@ -39,7 +39,10 @@ export const CrawlerItem = ({ data }) => {
         <Space direction="vertical" align="end">
           <Button type="default">Scrape</Button>
           <Space direction="horizontal">
-            <Button type="text">Check results</Button>
+            <div role="button">
+              <p className="ui-text-bold--underline">Check results</p>
+            </div>
+            <Button type="text"></Button>
             <Button type="text">More</Button>
           </Space>
         </Space>

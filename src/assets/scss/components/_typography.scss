@@ -1,0 +1,26 @@
+@import "../variables/color";
+#crawler {
+  & h6,
+  h5,
+  h4,
+  h3,
+  h2,
+  p,
+  h1 {
+    padding: 0;
+    margin: 0 !important;
+    color: $medium-grey;
+    &.ui-text--black {
+      color: black;
+    }
+    &.ui-text-bold--mg {
+      font-weight: 700;
+    }
+    &.ui-text-underline {
+      text-decoration: underline;
+      &-bold {
+        font-weight: 700;
+      }
+    }
+  }
+}

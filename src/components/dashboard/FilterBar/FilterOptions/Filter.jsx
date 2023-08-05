@@ -35,7 +35,7 @@ const Filter = () => {
     <>
       <Popover
         rootClassName="filter-popover"
-        style={{position: "absolute", top:20}}
+        style={{ position: "absolute", top: 20 }}
         arrow={false}
         open={openFilter}
         content={
@@ -47,8 +47,12 @@ const Filter = () => {
                     <div className="d-flex flex-column">
                       <h6 className="ui-text--black">Categories</h6>
                       <div className="d-flex flex-column">
-                        {categories.map((value) => {
-                          return <Checkbox value={value}>{value}</Checkbox>;
+                        {categories.map((value, idx) => {
+                          return (
+                            <Checkbox key={idx} value={value}>
+                              {value}
+                            </Checkbox>
+                          );
                         })}
                       </div>
                     </div>
@@ -59,8 +63,12 @@ const Filter = () => {
                     <div className="d-flex flex-column">
                       <h6 className="ui-text--black">App</h6>
                       <div className="d-flex flex-column">
-                        {app.map((value) => {
-                          return <Checkbox value={value}>{value}</Checkbox>;
+                        {app.map((value, idx) => {
+                          return (
+                            <Checkbox key={idx} value={value}>
+                              {value}
+                            </Checkbox>
+                          );
                         })}
                       </div>
                     </div>

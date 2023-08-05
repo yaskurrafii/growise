@@ -11,7 +11,7 @@ export const SideMenu = () => {
         <hr />
         <Workspace />
       </div>
-      <div className="">
+      <div>
         <CreateNewWorkspace />
         <hr className="m-0" />
         <Trash />

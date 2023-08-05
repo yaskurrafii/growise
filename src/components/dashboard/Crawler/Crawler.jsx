@@ -6,9 +6,9 @@ export const Crawler = () => {
   const [tasks, _] = useAtom(crawlerTask);
   return (
     <div className="content-wrapper__crawler">
-      {tasks.map((task) => (
-        <CrawlerItem data={task} key={task.name} />
-      ))}
+      {tasks.map((task, idx) => {
+        return <CrawlerItem key={idx} data={task} />;
+      })}
     </div>
   );
 };
