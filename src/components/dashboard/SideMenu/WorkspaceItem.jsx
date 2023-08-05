@@ -5,7 +5,7 @@ import {
   AiIcon,
   CrawlerIcon,
   WorkerIcon,
-} from "../Navbar/Icon";
+} from "@/components/Icons";
 const WorkspaceItem = () => {
   return (
     <div className="workspace-item d-flex flex-column gap-3">

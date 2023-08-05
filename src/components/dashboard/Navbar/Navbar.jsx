@@ -4,7 +4,7 @@ import {
   AiIcon,
   WorkerIcon,
   MenuIcon,
-} from "./Icon.jsx";
+} from "@/components/Icons";
 import { Header } from "antd/es/layout/layout.js";
 import { Space, Button } from "antd";
 import { useNavigate } from "react-router-dom";

@@ -1,6 +1,6 @@
 import { Button, Card, Divider, Form, Input, Spin, Typography } from "antd";
 import { Container } from "react-bootstrap";
-import { LogoIcon } from "../dashboard/components/Navbar/Icon";
+import { LogoIcon } from "@/components/Icons";
 import { Link, useNavigate } from "react-router-dom";
 import { RegisterApi } from "@/apis/api";
 import { useState } from "react";
@@ -25,7 +25,7 @@ export default function Register() {
       style={{ minHeight: "100vh", width: "100vw" }}
     >
       <Container className="d-flex justify-content-center align-items-center">
-        <Card style={{ width: "fit-content", height:"fit-content" }}>
+        <Card style={{ width: "fit-content", height: "fit-content" }}>
           <Form
             name="basic"
             labelCol={{ span: 8 }}

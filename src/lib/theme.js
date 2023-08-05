@@ -5,7 +5,7 @@ const theme = {
   components: {
     Input: {
       colorPrimary: "#D9D9D9",
-      borderRadius: 1,
+      borderRadius: 8,
     },
     Button: {
       colorInfo: "#1F4F99",

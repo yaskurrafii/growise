@@ -1,5 +1,4 @@
 import { Button, Checkbox, Space } from "antd";
-import { CrawlerIcon } from "../Navbar/Icon";
 import { Link } from "react-router-dom";
 
 export const CrawlerItem = ({ data }) => {
@@ -8,7 +7,7 @@ export const CrawlerItem = ({ data }) => {
       <Space direction="horizontal" size="middle" align="start">
         <Checkbox />
         <Space direction="vertical" size="large" align="start">
-          <h5>{data.name}</h5>
+          <h5 className="ui-text--black">{data.name}</h5>
           <div className="d-flex gap-3">
             <Space align="start" direction="vertical">
               <p>Page</p>

@@ -1,18 +1,8 @@
 @import "pages/scraper", "components/button", "components/tools",
-  "components/tips", "components/getData", "components/scraperList", "components/popover",
-  "pages/dashboard";
+  "components/tips", "components/getData", "components/scraperList",
+  "components/popover", "pages/dashboard";
 
 // development
-h6,
-h5,
-h4,
-h3,
-h2,
-p,
-h1 {
-  padding: 0;
-  margin: 0 !important;
-}
 
 //production
 body {
@@ -42,6 +32,20 @@ body {
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  & h6,
+  h5,
+  h4,
+  h3,
+  h2,
+  p,
+  h1 {
+    padding: 0;
+    margin: 0 !important;
+    color: $medium-grey;
+    &.ui-text--black {
+      color: black;
+    }
+  }
 }
 
 .filtered {

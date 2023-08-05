@@ -201,6 +201,74 @@ function HomeIcon(props) {
     </svg>
   );
 }
+function MoreIcon(props) {
+  return (
+    <svg
+      width={14}
+      height={14}
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <g clipPath="url(#clip0_2125_689)">
+        <path fill="#fff" d="M0 0H14V14H0z" />
+        <path d="M0 7a7 7 0 1114 0A7 7 0 010 7z" fill="#616161" />
+        <path d="M13 7A6 6 0 10.999 7 6 6 0 0013 7z" fill="#fff" />
+        <path
+          d="M7 8a1 1 0 100-2 1 1 0 000 2zM10 8a1 1 0 100-2 1 1 0 000 2zM4 8a1 1 0 100-2 1 1 0 000 2z"
+          fill="#616161"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_2125_689">
+          <path fill="#fff" d="M0 0H14V14H0z" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+}
+
+function TagIcon(props) {
+  return (
+    <svg
+      width={14}
+      height={14}
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M1.75 6.517v-3.6A1.167 1.167 0 012.917 1.75h3.6c.31 0 .606.123.825.342l4.667 4.666a1.167 1.167 0 010 1.65l-3.6 3.6a1.167 1.167 0 01-1.65 0L2.091 7.342a1.167 1.167 0 01-.342-.825z"
+        stroke="#616161"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function FilterIcon(props) {
+  return (
+    <svg
+      width={15}
+      height={12}
+      viewBox="0 0 15 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M8.55 4c.43 1.165 1.594 2 2.96 2 1.734 0 3.14-1.343 3.14-3s-1.406-3-3.14-3c-1.366 0-2.53.835-2.96 2H1.046C.468 2 0 2.448 0 3s.468 1 1.046 1H8.55zm4.007-1c0 .552-.469 1-1.047 1s-1.046-.448-1.046-1 .468-1 1.046-1c.578 0 1.047.448 1.047 1zM6.1 8c-.431-1.165-1.594-2-2.96-2C1.404 6 0 7.343 0 9s1.405 3 3.14 3c1.366 0 2.529-.835 2.96-2h7.503c.578 0 1.047-.448 1.047-1s-.469-1-1.047-1H6.1zm-2.96 2c-.579 0-1.047-.448-1.047-1s.468-1 1.046-1c.578 0 1.047.448 1.047 1s-.469 1-1.047 1z"
+        fill="#616161"
+      />
+    </svg>
+  );
+}
 
 export {
   LogoIcon,
@@ -211,4 +279,7 @@ export {
   MenuIcon,
   ArrowRightIcon,
   HomeIcon,
+  MoreIcon,
+  TagIcon,
+  FilterIcon,
 };

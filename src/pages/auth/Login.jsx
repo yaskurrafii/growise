@@ -1,20 +1,20 @@
 import { Button, Card, Divider, Form, Input, Spin, Typography } from "antd";
 import { Container } from "react-bootstrap";
-import { LogoIcon } from "../dashboard/components/Navbar/Icon";
+import { LogoIcon } from "@/components/Icons";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { LoginApi } from "@/apis/api";
 
 export default function Login() {
-  const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const onFinish = (values) => {
-    setLoading(true)
+    setLoading(true);
     LoginApi(values).then((resp) => {
-      console.log(resp.data)
-      setLoading(false)
-      navigate("/dashboard")
-    })
+      console.log(resp.data);
+      setLoading(false);
+      navigate("/dashboard");
+    });
   };
 
   return (
@@ -56,7 +56,12 @@ export default function Login() {
             </Form.Item>
 
             <Form.Item wrapperCol={{ offset: 8, span: 24 }}>
-              <Button type="primary" htmlType="submit" style={{ width: "100%" }} disabled={loading}>
+              <Button
+                type="primary"
+                htmlType="submit"
+                style={{ width: "100%" }}
+                disabled={loading}
+              >
                 {loading ? <Spin /> : "Login"}
               </Button>
             </Form.Item>
