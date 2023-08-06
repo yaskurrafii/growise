@@ -1,17 +1,7 @@
 @import "pages/scraper", "components/button", "components/tools",
-  "components/tips", "components/getData", "components/scraperList", "components/popover",
-  "pages/dashboard";
+  "components/tips", "components/getData", "components/scraperList",
+  "components/popover", "pages/dashboard", "components/typography";
 
-// development
-h3,
-h2,
-p,
-h1 {
-  padding: 0;
-  margin: 0;
-}
-
-//production
 body {
   margin: 0;
 }
@@ -30,14 +20,14 @@ body {
 
 #crawler {
   position: fixed;
-  width: 1400px;
-  height: 700px;
+  width: 95%;
+  height: 95%;
   top: 50%;
   overflow-y: scroll;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
-  border-radius: 5px;
+  border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
