@@ -326,6 +326,27 @@ function DocumentIcon(props) {
     </svg>
   );
 }
+
+function EditIcon(props) {
+  return (
+    <svg
+      width={16}
+      height={16}
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M10 4l2 2m-3.333 7.333H14M3.334 10.667l-.667 2.666 2.667-.666 7.724-7.724a1.334 1.334 0 000-1.886l-.115-.114a1.333 1.333 0 00-1.885 0l-7.724 7.724z"
+        stroke="#C6C6C6"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 export {
   LogoIcon,
   CrawlerIcon,
@@ -341,4 +362,5 @@ export {
   CreateNewWorkspaceIcon,
   TrashIcon,
   DocumentIcon,
+  EditIcon,
 };

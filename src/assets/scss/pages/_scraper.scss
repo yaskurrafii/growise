@@ -181,3 +181,16 @@
   color: black !important;
   cursor: pointer;
 }
+
+.scraper-list__table {
+  & .ant-table {
+    border-radius: 0 !important;
+  }
+  & .ant-table-container {
+    & table {
+      & .ant-table-tbody {
+        background: "#F6F6F6" !important;
+      }
+    }
+  }
+}

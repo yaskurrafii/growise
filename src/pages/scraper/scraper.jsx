@@ -7,9 +7,9 @@ import { createPortal } from "react-dom";
 
 export const Scraper = () => {
   const [step, setStep] = useState(1);
-  document.getElementById("growise-crawler").style.pointerEvents = "auto";
-  document.getElementById("growise-crawler").style.backgroundColor =
-    "#00000080";
+  // document.getElementById("growise-crawler").style.pointerEvents = "auto";
+  // document.getElementById("growise-crawler").style.backgroundColor =
+  //  "#00000080";
   return (
     <div className="build-scraper">
       {step == 1 && <ScraperType setFormStep={setStep} />}

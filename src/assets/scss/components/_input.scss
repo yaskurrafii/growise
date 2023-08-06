@@ -1,0 +1,18 @@
+@import "../variables/color";
+
+.ant-input-affix-wrapper.ui-input--no-outline {
+  border-style: none;
+  & input.ant-input {
+    background-color: #f6f6f6;
+    &:active {
+      background: $gray !important;
+    }
+    &:focus {
+      background-color: $gray !important;
+    }
+  }
+}
+
+span.ant-input-affix-wrapper-focused.ui-input--no-outline {
+  background: $gray !important;
+}
