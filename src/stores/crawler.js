@@ -24,3 +24,5 @@ export const mode = atom("scraper");
 export const feedOption = atom(1);
 export const paginationBtn = atom(null);
 export const paginationStep = atom(0);
+export const tableName = atom("");
+export const dataItem = atom({});

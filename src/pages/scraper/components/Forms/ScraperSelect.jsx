@@ -22,16 +22,18 @@ export const ScraperSelect = () => {
   const [hoverActiveVal, setHoverActive] = useAtom(hoverActive);
   const [hoveredElement, setHoveredElement] = useState(null);
   const [closeTips, setCloseTips] = useState(false);
+  let counter = 0;
 
   const _handleClick = useCallback(
     (event) => {
       event.preventDefault();
 
+      counter++;
+
       const target = event.target;
       const cssSelector = generateCssSelector(target);
 
       setHoveredElement(target);
-      setHoverActive(false);
 
       if (modeVal === "pagination") {
         setPaginationStep(1);
@@ -51,7 +53,11 @@ export const ScraperSelect = () => {
           window.scrollY + y + 235 + event.target.offsetHeight
         }px`;
         document.body.insertAdjacentElement("afterbegin", container);
-        render(<FormGetData content={text} link={link} />, container);
+        if (counter == 2) {
+          render(<FormGetData content={text} link={link} />, container);
+          counter = 0;
+          setHoverActive(false);
+        }
       }
     },
     [modeVal]
@@ -91,7 +97,6 @@ export const ScraperSelect = () => {
             if (hasExcludedAncestor) {
               return;
             }
-
             target.classList.add("highlightEl");
             target.addEventListener("click", _handleClick);
           }

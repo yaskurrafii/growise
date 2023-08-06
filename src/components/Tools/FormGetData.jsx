@@ -9,16 +9,23 @@ import {
 } from "antd";
 import theme from "@/lib/theme";
 import { useState } from "react";
-import { useSetAtom } from "jotai";
-import { hoverActive } from "@/stores/crawler";
+import { useSetAtom, useAtom } from "jotai";
+import { hoverActive, tableName, dataItem } from "@/stores/crawler";
 
 export const FormGetData = ({ content, link }) => {
   const setHoverActive = useSetAtom(hoverActive);
+  const  setTable = useSetAtom(tableName);
+  const  setData = useSetAtom(dataItem);
   const [form] = Form.useForm();
   const [openForm, setOpenForm] = useState(true);
   const onFinish = (values) => {
     setOpenForm(false);
     setHoverActive(true);
+    setTable(values.name);
+    setData((prevData) => ({
+      ...prevData,
+      [values.name]: {},
+    }));
   };
 
   return (
