@@ -4,7 +4,7 @@ import { LogoIcon } from "@/components/Icons";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { LoginApi } from "@/apis/api";
-import { useSetAtomAtom } from "jotai";
+import { useSetAtom } from "jotai";
 import { crawlerData } from "@/stores/crawler";
 
 export default function Login() {
