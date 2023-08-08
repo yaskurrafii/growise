@@ -1,4 +1,3 @@
-import { formStep } from "@/stores/crawler";
 import { ScraperType } from "./components/Forms/ScraperType";
 import { ScraperName } from "./components/Forms/ScraperName";
 import { ScraperSelect } from "./components/Forms/ScraperSelect";

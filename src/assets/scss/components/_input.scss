@@ -10,6 +10,9 @@
     &:focus {
       background-color: $gray !important;
     }
+    &::placeholder {
+      color: $blue;
+    }
   }
 }
 

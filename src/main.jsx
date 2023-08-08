@@ -13,7 +13,7 @@ import theme from "./lib/theme";
 // const bodyDom = document.body;
 // var initDom = document.createElement("div");
 // initDom.id = "growise-crawler";
-//
+
 // chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 //   if (document.getElementById("growise-crawler") !== null) {
 //     document.getElementById("growise-crawler").remove();

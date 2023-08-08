@@ -347,6 +347,24 @@ function EditIcon(props) {
     </svg>
   );
 }
+
+function CheckboxIcon(props) {
+  return (
+    <svg
+      width={18}
+      height={18}
+      viewBox="0 0 18 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M7.6 13.2l7.05-7.05-1.4-1.4L7.6 10.4 4.75 7.55l-1.4 1.4L7.6 13.2zM2 18c-.55 0-1.021-.196-1.413-.588A1.922 1.922 0 010 16V2C0 1.45.196.979.588.587A1.922 1.922 0 012 0h14c.55 0 1.021.196 1.413.588.392.392.588.863.587 1.412v14c0 .55-.196 1.021-.588 1.413A1.922 1.922 0 0116 18H2z"
+        fill="#F5C843"
+      />
+    </svg>
+  );
+}
 export {
   LogoIcon,
   CrawlerIcon,
@@ -363,4 +381,5 @@ export {
   TrashIcon,
   DocumentIcon,
   EditIcon,
+  CheckboxIcon,
 };
