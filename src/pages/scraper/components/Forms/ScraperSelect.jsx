@@ -3,13 +3,18 @@ import { Actions } from "@/components/Tools/Actions";
 import ScraperList from "@/components/ScraperList";
 import { useCallback, useEffect, useState } from "react";
 import { FormGetData } from "@/components/Tools/FormGetData";
-import generateCssSelector from "@/services/crawler_script";
+import {
+  generateCssSelector,
+  summarizeCSSPaths,
+  extract_data,
+} from "@/services/crawler_script";
 
 import {
   hoverActive,
   paginationBtn,
   mode,
   paginationStep,
+  crawlerData,
 } from "@/stores/crawler";
 import { useAtom, useSetAtom } from "jotai";
 
@@ -22,7 +27,11 @@ export const ScraperSelect = () => {
   const [hoverActiveVal, setHoverActive] = useAtom(hoverActive);
   const [hoveredElement, setHoveredElement] = useState(null);
   const [closeTips, setCloseTips] = useState(false);
+  const [crawlerdata, setCrawlerData] = useAtom(crawlerData);
+  console.log(crawlerdata);
+
   let counter = 0;
+  let cssPathList = [];
 
   const _handleClick = useCallback(
     (event) => {
@@ -32,6 +41,7 @@ export const ScraperSelect = () => {
 
       const target = event.target;
       const cssSelector = generateCssSelector(target);
+      cssPathList.push(cssSelector);
 
       setHoveredElement(target);
 
@@ -53,8 +63,16 @@ export const ScraperSelect = () => {
           window.scrollY + y + 235 + event.target.offsetHeight
         }px`;
         document.body.insertAdjacentElement("afterbegin", container);
+
         if (counter == 2) {
-          render(<FormGetData content={text} link={link} />, container);
+          let summarize = summarizeCSSPaths(cssPathList[0], cssPathList[1]);
+          console.log(summarize);
+          let element = document.querySelectorAll(summarize);
+          let content = extract_data(element);
+          render(
+            <FormGetData content={text} link={link} dataElement={content} />,
+            container
+          );
           counter = 0;
           setHoverActive(false);
         }

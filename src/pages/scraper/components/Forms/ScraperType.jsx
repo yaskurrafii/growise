@@ -12,7 +12,11 @@ export const ScraperType = ({ setFormStep }) => {
 
   const onSubmit = (values) => {
     data.type = values.type;
-    setData({ ...data });
+    let url = window.location.href;
+    setData((prevdata) => ({
+      ...prevdata,
+      url: url,
+    }));
     setFormStep(2);
   };
 
