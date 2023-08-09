@@ -2,11 +2,11 @@ import Dashboard from "./pages/dashboard";
 import Scraper from "./pages/scraper";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
-import { createHashRouter } from "react-router-dom";
+import { createMemoryRouter } from "react-router-dom";
 
-export const router = createHashRouter([
+const routes = [
   {
-    path: "/",
+    path: "/login",
     element: <Login />,
   },
   {
@@ -15,10 +15,17 @@ export const router = createHashRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />
+    element: <Dashboard />,
   },
   {
     path: "/register",
     element: <Register />,
   },
-]);
+];
+
+const router = createMemoryRouter(routes, {
+  initialEntries: ["/login", "/register", "/dashboard", "/build-scraper"],
+  initialIndex: 0
+});
+
+export default router;

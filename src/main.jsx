@@ -1,26 +1,29 @@
 /* global chrome */
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM, { createRoot } from "react-dom/client";
 import "./assets/scss/styles.scss";
 import "bootstrap/dist/css/bootstrap.css";
 import { Provider } from "jotai";
 import { ConfigProvider } from "antd";
 import { RouterProvider } from "react-router-dom";
-import { router } from "./router";
+import router from "./router";
 import theme from "./lib/theme";
 
 // production
 const bodyDom = document.body;
 var initDom = document.createElement("div");
 initDom.id = "growise-crawler";
+let root;
 
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   if (document.getElementById("growise-crawler") !== null) {
+    root.unmount();
     document.getElementById("growise-crawler").remove();
     sendResponse({ status: "closed" });
   } else if (message.action === "init" || message.action === "toggle") {
     bodyDom.insertBefore(initDom, bodyDom.childNodes[0]);
-    ReactDOM.createRoot(document.getElementById("growise-crawler")).render(
+    root = createRoot(document.getElementById("growise-crawler"));
+    root.render(
       <ConfigProvider theme={theme}>
         <React.StrictMode>
           <RouterProvider router={router} />

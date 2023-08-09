@@ -1,11 +1,12 @@
 import { Table } from "antd";
 import { useAtom } from "jotai";
 import { dataItem } from "@/stores/crawler";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export const TableList = () => {
   const [dataitem, setDataitem] = useAtom(dataItem);
-  let columns = [];
+  const [columns, setColumns] = useState([]);
+  const [dataSource, setDataSource] = useState([]);
   // const columns = [
   //   {
   //     title: "Name",
@@ -24,29 +25,32 @@ export const TableList = () => {
   // ];
 
   useEffect(() => {
-    for (let key in dataitem) {
-      columns.push({
-        title: key,
-        dataIndex: key,
+    let colstemp = [],
+      datatemp = [];
+    for (let keyitem in dataitem) {
+      colstemp.push({
+        title: keyitem,
+        dataIndex: keyitem,
         width: 150,
       });
+      if (datatemp.length === 0) {
+        for (let i = 0; i < dataitem[keyitem].length; i++) {
+          datatemp.push({
+            key: i,
+            [keyitem]: dataitem[keyitem][i],
+          });
+        }
+      }
     }
+    setColumns(colstemp);
+    setDataSource(datatemp);
   }, [dataitem]);
 
-  const data = [];
-  for (let i = 0; i < 100; i++) {
-    data.push({
-      key: i,
-      name: `Edward King ${i}`,
-      age: 32,
-      address: `London, Park Lane no. ${i}`,
-    });
-  }
   return (
     <div className="scraper-list__table rounded-0 overflow-auto">
       <Table
         columns={columns}
-        dataSource={data}
+        dataSource={dataSource}
         pagination={false}
         scroll={{ y: 150 }}
       />

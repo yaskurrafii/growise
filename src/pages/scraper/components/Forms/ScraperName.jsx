@@ -46,7 +46,7 @@ export const ScraperName = ({ setFormStep }) => {
         </Button>
         <Button
           className="ui-btn-outline-white"
-          onClick={() => setFormStep(3)}
+          onClick={() => {setFormStep(3)}}
           type="default"
           info
           ghost
