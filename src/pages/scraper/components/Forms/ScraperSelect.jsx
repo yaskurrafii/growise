@@ -28,7 +28,6 @@ export const ScraperSelect = () => {
   const [hoveredElement, setHoveredElement] = useState(null);
   const [closeTips, setCloseTips] = useState(false);
   const [crawlerdata, setCrawlerData] = useAtom(crawlerData);
-  console.log(crawlerdata);
 
   let counter = 0;
   let cssPathList = [];
@@ -168,7 +167,7 @@ export const ScraperSelect = () => {
   }, [hoverActiveVal, modeVal]);
 
   return (
-    <div className="build__scraper-select">
+    <>
       <div className="build__scraper-select--tools-container d-flex flex-column position-fixed gap-2">
         <Actions />
         {!closeTips && (
@@ -198,6 +197,6 @@ export const ScraperSelect = () => {
         )}
       </div>
       <ScraperList />
-    </div>
+    </>
   );
 };

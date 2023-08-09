@@ -6,6 +6,12 @@ chrome.action.onClicked.addListener(async function (tab) {
     await injectCssScript(tab.id);
     tabs.add(tab.id);
   } else {
-    sendMessageToTab(tab.id,{ action: "toggle" });
+    sendMessageToTab(tab.id, { action: "toggle" });
+  }
+});
+
+chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
+  if (changeInfo.url === undefined) {
+    tabs.delete(tab.id);
   }
 });
