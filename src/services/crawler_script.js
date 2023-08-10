@@ -1,19 +1,36 @@
-export function generateCssSelector(el) {
-  if (!(el instanceof Element)) return;
+export function generateCssSelector(element, elementType) {
+  // if (!(el instanceof Element)) return;
 
-  const parts = [];
-  while (el.nodeType === Node.ELEMENT_NODE) {
-    let tag = el.nodeName.toLowerCase();
-    let id = el.id ? `#${el.id}` : "";
-    let className = el.className
-      ? `.${el.className.trim().replace(/\s+/g, ".")}`
-      : "";
+  const path = [];
+  while (element) {
+    console.log(element.tagName);
+    if (element.tagName === elementType.toUpperCase()) {
+      let selector = elementType;
 
-    parts.unshift(`${tag}${id}${className}`);
-    el = el.parentNode;
+      // Calculate the position of the element among its siblings
+      let index = 1;
+      let sibling = element.previousElementSibling;
+      while (sibling) {
+        if (sibling.tagName === elementType.toUpperCase()) {
+          index++;
+        }
+        sibling = sibling.previousElementSibling;
+      }
+
+      // Append :nth-child selector
+      selector += `:nth-child(${index})`;
+
+      path.unshift(selector);
+    } else {
+      path.unshift(element.tagName);
+    }
+    element = element.parentElement;
+    if (element !== null) {
+      elementType = element.tagName;
+    }
   }
 
-  return parts.join(" > ");
+  return path.join(" > ");
 }
 
 export function summarizeCSSPaths(path1, path2) {
@@ -26,22 +43,11 @@ export function summarizeCSSPaths(path1, path2) {
     let first = segments1[i];
     let second = segments2[i];
 
-    if (first.includes("#") || second.includes("#")) {
-      let getElement1 = segments1[i].split("#");
-      let getElement2 = segments2[i].split("#");
-      first = getElement1[0];
-      second = getElement2[0];
-    } else if (first.includes(".") || second.includes(".")) {
-      let getElement1 = segments1[i].split(".");
-      let getElement2 = segments2[i].split(".");
-      first = getElement1[0];
-      second = getElement2[0];
-    }
-
-    if (first === second) {
+    if (first === second && i > segments1.length - 4) {
       commonSelector += first + " > ";
     } else {
-      break;
+      tag = first.split(":")[0];
+      commonSelector += tag + " > ";
     }
   }
 
@@ -55,5 +61,5 @@ export function extract_data(elements) {
     content.push(element.textContent.trim());
   });
 
-  return content
+  return content;
 }

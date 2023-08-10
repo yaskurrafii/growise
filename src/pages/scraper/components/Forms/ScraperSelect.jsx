@@ -39,7 +39,8 @@ export const ScraperSelect = () => {
       counter++;
 
       const target = event.target;
-      const cssSelector = generateCssSelector(target);
+      const elementType = target.tagName.toLowerCase();
+      const cssSelector = generateCssSelector(target, elementType);
       cssPathList.push(cssSelector);
 
       setHoveredElement(target);
@@ -74,6 +75,7 @@ export const ScraperSelect = () => {
           );
           counter = 0;
           setHoverActive(false);
+          cssPathList = [];
         }
       }
     },
