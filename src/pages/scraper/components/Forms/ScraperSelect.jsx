@@ -40,8 +40,9 @@ export const ScraperSelect = () => {
 
       const target = event.target;
       const elementType = target.tagName.toLowerCase();
-      const cssSelector = generateCssSelector(target, elementType);
+      const cssSelector = generateCssSelector(target);
       cssPathList.push(cssSelector);
+      console.log(cssSelector);
 
       setHoveredElement(target);
 
@@ -65,10 +66,15 @@ export const ScraperSelect = () => {
         document.body.insertAdjacentElement("afterbegin", container);
 
         if (counter == 2) {
-          let summarize = summarizeCSSPaths(cssPathList[0], cssPathList[1]);
-          console.log(summarize);
+          let summarize = summarizeCSSPaths(
+            cssPathList[0],
+            cssPathList[1],
+            text
+          );
           let element = document.querySelectorAll(summarize);
           let content = extract_data(element);
+          console.log(summarize);
+          console.log(content);
           render(
             <FormGetData content={text} link={link} dataElement={content} />,
             container
