@@ -40,6 +40,10 @@ export const TableList = () => {
             [keyitem]: dataitem[keyitem][i],
           });
         }
+      } else {
+        for (let i = 0; i < datatemp.length; i++) {
+          datatemp[i] = { ...datatemp[i], [keyitem]: dataitem[keyitem][i] };
+        }
       }
     }
     setColumns(colstemp);
