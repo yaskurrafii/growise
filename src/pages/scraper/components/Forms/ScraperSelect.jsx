@@ -60,17 +60,12 @@ export const ScraperSelect = () => {
         container.className = "scraper-tools--form-get-data-container";
         container.style.position = "absolute";
         container.style.left = `${window.scrollX + x + 120}px`;
-        container.style.top = `${
-          window.scrollY + y + 235 + event.target.offsetHeight
-        }px`;
-        document.body.insertAdjacentElement("afterbegin", container);
+        container.style.top = `${window.scrollY + y + 235 + event.target.offsetHeight
+          }px`;
+        document.body.appendChild(container);
 
         if (counter == 2) {
-          let summarize = summarizeCSSPaths(
-            cssPathList[0],
-            cssPathList[1],
-            text
-          );
+          let summarize = summarizeCSSPaths(cssPathList[0], cssPathList[1]);
           let element = document.querySelectorAll(summarize);
           let content = extract_data(element);
           console.log(summarize);

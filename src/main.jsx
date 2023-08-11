@@ -21,7 +21,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     document.getElementById("growise-crawler").remove();
     sendResponse({ status: "closed" });
   } else if (message.action === "init" || message.action === "toggle") {
-    bodyDom.insertBefore(initDom, bodyDom.childNodes[0]);
+    bodyDom.appendChild(initDom);
     root = createRoot(document.getElementById("growise-crawler"));
     root.render(
       <ConfigProvider theme={theme}>
