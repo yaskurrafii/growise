@@ -4,8 +4,10 @@ import { crawlerData } from "@/stores/crawler";
 import UIButton from "@/components/Button";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
+import { useTranslation } from "react-i18next";
 
 export const ScraperType = ({ setFormStep }) => {
+  const { t } = useTranslation();
   const { handleSubmit, register } = useForm();
 
   const [data, setData] = useAtom(crawlerData);
@@ -45,11 +47,8 @@ export const ScraperType = ({ setFormStep }) => {
               <img src="src/assets/images/single_page.png" alt="single-page" />
             </div>
             <div className="build-scraper__single-helper">
-              <h2>Single Page</h2>
-              <p>
-                Get data from a single page <br /> Example: user profile or
-                article pages
-              </p>
+              <h2>{t("scraper.type.single.name")}</h2>
+              <p>{t("scraper.type.single.description")}</p>
             </div>
           </label>
           <label
@@ -68,18 +67,14 @@ export const ScraperType = ({ setFormStep }) => {
               <img src="src/assets/images/list_page.png" alt="list-page" />
             </div>
             <div className="build-scraper__list-helper">
-              <h2>List Page</h2>
-              <p>
-                Grab multiple items from a list, page-capable fetching
-                <br />
-                Example: get a list of products or profiles from a search
-              </p>
+              <h2>{t("scraper.type.list.name")}</h2>
+              <p>{t("scraper.type.list.description")}</p>
             </div>
           </label>
         </div>
         <Link to={`/dashboard`}>
           <Button className="ui-btn-outline-white" type="default" ghost>
-            Cancel
+            {t("button.text.cancel")}
           </Button>
         </Link>
       </form>

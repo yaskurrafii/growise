@@ -6,10 +6,19 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 
 export const Scraper = () => {
+<<<<<<< Updated upstream
   const [step, setStep] = useState(1);
   document.getElementById("growise-crawler").style.pointerEvents = "auto";
   document.getElementById("growise-crawler").style.backgroundColor =
     "#00000080";
+=======
+  // const parentDom = document.getElementById("growise-crawler");
+  const [step, setStep] = useState(1);
+
+  // parentDom.style.pointerEvents = "auto";
+  // parentDom.style.backgroundColor = "#00000080";
+
+>>>>>>> Stashed changes
   return (
     <div className="build-scraper">
       {step == 1 && <ScraperType setFormStep={setStep} />}
