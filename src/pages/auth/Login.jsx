@@ -13,17 +13,17 @@ export default function Login() {
   const setCrawlerData = useSetAtom(crawlerData);
 
   const onFinish = (values) => {
-    setLoading(true);
-    LoginApi(values).then((resp) => {
-      console.log(resp.data["description"]);
-      if (resp.data["description"]) {
-        setCrawlerData((prevdata) => ({
-          ...prevdata, account: resp.data['id']
-        }))
-        setLoading(false);
+    // setLoading(true);
+    // LoginApi(values).then((resp) => {
+    //   console.log(resp.data["description"]);
+    //   if (resp.data["description"]) {
+    //     setCrawlerData((prevdata) => ({
+    //       ...prevdata, account: resp.data['id']
+    //     }))
+    //     setLoading(false);
         navigate("/dashboard");
-      }
-    });
+    //   }
+    // });
   };
 
   return (
