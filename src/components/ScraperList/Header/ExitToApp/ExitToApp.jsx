@@ -1,6 +1,20 @@
+import { useAtom } from "jotai";
+import { crawlerData } from "@/stores/crawler";
+
 export const ExitToApp = () => {
+  const [data, setData] = useAtom(crawlerData);
+
+  const submitCrawler = (values) => {
+    console.log(data);
+  };
+
   return (
-    <button>
+    <button
+      onClick={() => {
+        submitCrawler();
+        console.log(data);
+      }}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="28"
