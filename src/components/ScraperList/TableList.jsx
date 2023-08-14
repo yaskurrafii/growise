@@ -7,22 +7,6 @@ export const TableList = () => {
   const [dataitem, setDataitem] = useAtom(dataItem);
   const [columns, setColumns] = useState([]);
   const [dataSource, setDataSource] = useState([]);
-  // const columns = [
-  //   {
-  //     title: "Name",
-  //     dataIndex: "name",
-  //     width: 150,
-  //   },
-  //   {
-  //     title: "Age",
-  //     dataIndex: "age",
-  //     width: 150,
-  //   },
-  //   {
-  //     title: "Address",
-  //     dataIndex: "address",
-  //   },
-  // ];
 
   useEffect(() => {
     let colstemp = [],
@@ -39,6 +23,10 @@ export const TableList = () => {
             key: i,
             [keyitem]: dataitem[keyitem][i],
           });
+        }
+      } else {
+        for (let i = 0; i < datatemp.length; i++) {
+          datatemp[i] = { ...datatemp[i], [keyitem]: dataitem[keyitem][i] };
         }
       }
     }

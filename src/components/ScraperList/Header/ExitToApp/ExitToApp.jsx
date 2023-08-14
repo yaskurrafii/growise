@@ -1,6 +1,26 @@
+import { useAtom } from "jotai";
+import { crawlerData, dataItem } from "@/stores/crawler";
+import { CreateCrawler } from "@/apis/api";
+import { useNavigate } from "react-router-dom";
+
 export const ExitToApp = () => {
+  const [data, setData] = useAtom(crawlerData);
+  const [item, setItem] = useAtom(dataItem);
+  const navigate = useNavigate();
+
+  const submitCrawler = (values) => {
+    CreateCrawler(data).then((resp) => {
+      navigate("/dashboard");
+    });
+  };
+
   return (
-    <button>
+    <button
+      onClick={() => {
+        submitCrawler();
+        console.log(data);
+      }}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="28"

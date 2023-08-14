@@ -19,7 +19,7 @@ export async function RegisterApi(data) {
     return await axios
       .post(url.registerUrl, data)
       .then((response) => {
-        return response
+        return response;
       })
       .catch((error) => {
         console.log("Error register ", error.response.data);
@@ -35,6 +35,17 @@ export async function RegisterApi(data) {
 export async function LoginApi(data) {
   return await axios
     .post(url.loginUrl, data)
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      return error.response;
+    });
+}
+
+export async function CreateCrawler(data) {
+  return await axios
+    .post("http://127.0.0.1:8000/scraper/", (data = data))
     .then((response) => {
       return response;
     })

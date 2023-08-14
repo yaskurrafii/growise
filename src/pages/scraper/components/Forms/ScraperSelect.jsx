@@ -39,8 +39,10 @@ export const ScraperSelect = () => {
       counter++;
 
       const target = event.target;
+      const elementType = target.tagName.toLowerCase();
       const cssSelector = generateCssSelector(target);
       cssPathList.push(cssSelector);
+      console.log(cssSelector);
 
       setHoveredElement(target);
 
@@ -61,19 +63,24 @@ export const ScraperSelect = () => {
         container.style.top = `${
           window.scrollY + y + 235 + event.target.offsetHeight
         }px`;
-        document.body.insertAdjacentElement("afterbegin", container);
+        document.body.appendChild(container);
 
         if (counter == 2) {
           let summarize = summarizeCSSPaths(cssPathList[0], cssPathList[1]);
-          console.log(summarize);
           let element = document.querySelectorAll(summarize);
           let content = extract_data(element);
           render(
-            <FormGetData content={text} link={link} dataElement={content} />,
+            <FormGetData
+              content={text}
+              link={link}
+              dataElement={content}
+              element={summarize}
+            />,
             container
           );
           counter = 0;
           setHoverActive(false);
+          cssPathList = [];
         }
       }
     },

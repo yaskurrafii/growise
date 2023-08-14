@@ -9,10 +9,8 @@ export const ScraperName = ({ setFormStep }) => {
   const [data, setData] = useAtom(crawlerData);
 
   const onSubmit = (values) => {
-    console.log(values);
     data.name = values.name;
-    setData({ ...data });
-    setFormStep(3);
+    setData({ ...data });    setFormStep(3);
   };
 
   return (
