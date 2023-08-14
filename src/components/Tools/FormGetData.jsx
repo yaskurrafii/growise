@@ -9,13 +9,21 @@ import {
 } from "antd";
 import theme from "@/lib/theme";
 import { useState } from "react";
-import { useSetAtom, useAtom } from "jotai";
-import { hoverActive, tableName, dataItem } from "@/stores/crawler";
+import { useSetAtom } from "jotai";
+import {
+  hoverActive,
+  tableName,
+  dataItem,
+  crawlerData,
+  actions,
+} from "@/stores/crawler";
 
-export const FormGetData = ({ content, link, dataElement }) => {
+export const FormGetData = ({ content, link, dataElement, element }) => {
   const setHoverActive = useSetAtom(hoverActive);
   const setTable = useSetAtom(tableName);
   const setData = useSetAtom(dataItem);
+  const setCrawler = useSetAtom(crawlerData);
+  const setAction = useSetAtom(actions);
   const [form] = Form.useForm();
   const [openForm, setOpenForm] = useState(true);
   const onFinish = (values) => {
@@ -26,6 +34,11 @@ export const FormGetData = ({ content, link, dataElement }) => {
       ...prevData,
       [values.name]: dataElement,
     }));
+    setCrawler((prevdata) => ({
+      ...prevdata,
+      css: { ...prevdata["css"], [values.name]: element },
+    }));
+    setAction((prevdata) => [...prevdata, `Get Item ${values.name}`]);
   };
 
   return (

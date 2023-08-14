@@ -11,12 +11,12 @@ export const ScraperType = ({ setFormStep }) => {
   const [action, setAction] = useAtom(actions);
 
   const onSubmit = (values) => {
-    data.type = values.type;
     let url = window.location.href;
-    let action = [`Open URL ${url}`];
+    let action = [`Open Page ${url}`];
     setData((prevdata) => ({
       ...prevdata,
       url: url,
+      type: values.type
     }));
     setAction(action);
     setFormStep(2);

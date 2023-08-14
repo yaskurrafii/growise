@@ -1,11 +1,17 @@
 import { useAtom } from "jotai";
-import { crawlerData } from "@/stores/crawler";
+import { crawlerData, dataItem } from "@/stores/crawler";
+import { CreateCrawler } from "@/apis/api";
+import { useNavigate } from "react-router-dom";
 
 export const ExitToApp = () => {
   const [data, setData] = useAtom(crawlerData);
+  const [item, setItem] = useAtom(dataItem);
+  const navigate = useNavigate();
 
   const submitCrawler = (values) => {
-    console.log(data);
+    CreateCrawler(data).then((resp) => {
+      navigate("/dashboard");
+    });
   };
 
   return (

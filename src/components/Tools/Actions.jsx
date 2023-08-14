@@ -1,8 +1,14 @@
 import { actions } from "@/stores/crawler";
 import { useAtom } from "jotai";
+import { useEffect } from "react";
 
 export const Actions = () => {
   const [action, setAction] = useAtom(actions);
+
+  useEffect(() => {
+    console.log(action);
+  }, [action])
+
   return (
     <div className="scraper-tools__actions position-relative rounded-3">
       <svg

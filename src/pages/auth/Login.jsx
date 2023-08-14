@@ -4,23 +4,24 @@ import { LogoIcon } from "@/components/Icons";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { LoginApi } from "@/apis/api";
-import { useSetAtom } from "jotai";
+import { useSetAtom, useAtom } from "jotai";
 import { crawlerData } from "@/stores/crawler";
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const setCrawlerData = useSetAtom(crawlerData);
+  const [data, setCrawlerData] = useAtom(crawlerData);
 
   const onFinish = (values) => {
     setLoading(true);
     LoginApi(values).then((resp) => {
-      console.log(resp.data["description"]);
       if (resp.data["description"]) {
         setCrawlerData((prevdata) => ({
-          ...prevdata, account: resp.data['id']
-        }))
+          ...prevdata,
+          account: resp.data["id"],
+        }));
         setLoading(false);
+        console.log(data);
         navigate("/dashboard");
       }
     });
