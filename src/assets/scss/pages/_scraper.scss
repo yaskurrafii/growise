@@ -119,20 +119,22 @@
   }
 
   #scraper-form-name {
-    background-color: $bright-grey;
+    & .build__scraper-name-input {
+      background-color: $bright-grey;
+      padding:30px 30px 20px;
+      border-radius: 10px;
+    }
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    padding: 40px;
     border-radius: 20px;
     & input[type="text"] {
       color: $blue;
       text-align: center;
       font-size: 22px;
       height: 60px;
-      width: 40vw;
+      width: 90%;
       box-sizing: border-box;
       padding: 10px;
     }
