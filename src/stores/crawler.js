@@ -59,7 +59,6 @@ export const crawlerTask = atom([
 export const crawlerData = atom({
   type: "",
   name: "擷取資料範本-kkday全球樂園清單",
-  actions: [],
 });
 
 //scraper create form multiple step
@@ -79,3 +78,4 @@ export const paginationBtn = atom(null);
 export const paginationStep = atom(0);
 export const tableName = atom("");
 export const dataItem = atom({});
+export const actions = atom({});

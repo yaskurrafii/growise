@@ -1,7 +1,6 @@
 import { useAtom } from "jotai";
 import { useForm } from "react-hook-form";
-import { crawlerData } from "@/stores/crawler";
-import UIButton from "@/components/Button";
+import { crawlerData, actions } from "@/stores/crawler";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
 
@@ -9,14 +8,17 @@ export const ScraperType = ({ setFormStep }) => {
   const { handleSubmit, register } = useForm();
 
   const [data, setData] = useAtom(crawlerData);
+  const [action, setAction] = useAtom(actions);
 
   const onSubmit = (values) => {
     data.type = values.type;
     let url = window.location.href;
+    let action = [`Open URL ${url}`];
     setData((prevdata) => ({
       ...prevdata,
       url: url,
     }));
+    setAction(action);
     setFormStep(2);
   };
 
