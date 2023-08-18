@@ -22,3 +22,5 @@ export const registerUrl = `/register/`;
  * @returns Login URL string
  */
 export const loginUrl = `/login/`;
+
+export const scraperurl = `/scraper/`

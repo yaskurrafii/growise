@@ -12,7 +12,6 @@ async function injectCssScript(tabId) {
       target: { tabId },
       files: ["app.js"],
     });
-    console.log(injectionResults);
 
     const response = await sendMessageToTab(tabId, { action: "init" });
     if (response.status === "opened") {

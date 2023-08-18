@@ -28,7 +28,6 @@ const Filter = () => {
     setOpenFilter(!openFilter);
   };
   const onFinish = (values) => {
-    console.log(values);
     setOpenFilter(false);
   };
   return (

@@ -42,7 +42,6 @@ export const ScraperSelect = () => {
       const elementType = target.tagName.toLowerCase();
       const cssSelector = generateCssSelector(target);
       cssPathList.push(cssSelector);
-      console.log(cssSelector);
 
       setHoveredElement(target);
 

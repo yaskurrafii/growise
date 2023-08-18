@@ -18,7 +18,6 @@ export const ExitToApp = () => {
     <button
       onClick={() => {
         submitCrawler();
-        console.log(data);
       }}
     >
       <svg

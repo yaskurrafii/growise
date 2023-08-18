@@ -6,7 +6,6 @@ export const Actions = () => {
   const [action, setAction] = useAtom(actions);
 
   useEffect(() => {
-    console.log(action);
   }, [action])
 
   return (

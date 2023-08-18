@@ -17,7 +17,6 @@ export default function Register() {
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
   };
   return (
     <div

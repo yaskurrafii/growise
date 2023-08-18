@@ -21,7 +21,6 @@ export default function Login() {
           account: resp.data["id"],
         }));
         setLoading(false);
-        console.log(data);
         navigate("/dashboard");
       }
     });

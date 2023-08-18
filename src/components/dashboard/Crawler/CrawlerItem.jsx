@@ -3,6 +3,23 @@ import { Button, Checkbox, Space } from "antd";
 import { Link } from "react-router-dom";
 
 export const CrawlerItem = ({ data }) => {
+  const openNewTabAndRunFunction = (url, functionName) => {
+    const newTab = window.open(url, "_blank");
+
+    const messageListener = (event) => {
+      if (event.source === newTab) {
+        newTab.removeEventListener("message", messageListener);
+        if (event.data === "tabReady") {
+          newTab.postMessage(functionName, "*"); // Send the function name to the new tab
+        }
+      }
+    };
+
+    newTab.addEventListener("message", messageListener);
+  };
+
+  const testing = () => {
+  };
   return (
     <div className="crawler-item__container">
       <Space direction="horizontal" size="middle" align="start">
@@ -28,7 +45,7 @@ export const CrawlerItem = ({ data }) => {
               <p>Data field</p>
               <a href="">Manage the field names</a>
             </div>
-            <Space direction="horizontal" size="small">
+            {/* <Space direction="horizontal" size="small">
               {data.dataField.map((value, index) => {
                 return (
                   <div key={index} className="ui-outline-container">
@@ -36,7 +53,7 @@ export const CrawlerItem = ({ data }) => {
                   </div>
                 );
               })}
-            </Space>
+            </Space> */}
           </div>
         </Space>
       </Space>
@@ -45,6 +62,9 @@ export const CrawlerItem = ({ data }) => {
           <Button
             className="ui-btn-outline-yellow align-items-center d-flex gap-2"
             type="default"
+            onClick={() => {
+              openNewTabAndRunFunction(data.url, testing);
+            }}
           >
             Scrape
             <CrawlerIcon className="ui-btn-icon-scraper" color={"#F7CD47"} />
@@ -60,7 +80,7 @@ export const CrawlerItem = ({ data }) => {
             </div>
           </Space>
         </Space>
-        <p>{data.timestamp}</p>
+        <p>{data.las_run}</p>
       </div>
     </div>
   );

@@ -12,7 +12,6 @@ axios.defaults.baseURL = url.baseURL;
  * @returns Response Object
  */
 export async function RegisterApi(data) {
-  console.log(data);
   if (data.password !== data.repeatpassword) {
     console.log("Password not same");
   } else {
@@ -45,8 +44,20 @@ export async function LoginApi(data) {
 
 export async function CreateCrawler(data) {
   return await axios
-    .post("http://127.0.0.1:8000/scraper/", (data = data))
+    .post(url.scraperurl, (data = data))
     .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      return error.response;
+    });
+}
+
+export async function GetCrawler(userid) {
+  return await axios
+    .get(`http://127.0.0.1:8000/scraper/${userid}`)
+    .then((response) => {
+      console.log(response);
       return response;
     })
     .catch((error) => {
